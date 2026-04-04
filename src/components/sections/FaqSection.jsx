@@ -1,0 +1,68 @@
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronDown } from 'lucide-react';
+
+export function FaqSection() {
+  const faqs = [
+    { q: "Suis-je engagé sur la durée ?", a: "Non. Il n'y a absolument aucun engagement. Vous êtes libre d'arrêter quand vous le souhaitez." },
+    { q: "Est-ce adapté à mon activité ?", a: "Oui, tous nos systèmes (délégation de standard, prise de rdv, facturation) sont créés sur-mesure pour s'intégrer parfaitement à votre secteur." },
+    { 
+      q: "Au bout de combien de temps verrai-je les résultats ?", 
+      a: "Les résultats se ressentent très rapidement.\n\nVous gagnez du temps, vous réduisez votre charge mentale et vous arrêtez de gérer des tâches répétitives.\n\nMoins d'appels manqués, plus de relances à faire manuellement, et toute votre activité devient plus claire et organisée.\n\nTout est centralisé, vous savez exactement où vous en êtes, sans vous disperser." 
+    },
+    { 
+      q: "Quels sont les risques ?", 
+      a: "Le vrai risque aujourd'hui, c'est de ne rien changer.\n\nContinuer à perdre du temps sur des tâches répétitives, manquer des opportunités et gérer seul des choses qui peuvent être automatisées.\n\nVous avez la possibilité de déléguer intelligemment à un système conçu pour ça.\n\nEt surtout, vous bénéficiez de 7 jours d'essai gratuit : vous testez, vous voyez les résultats, et vous décidez ensuite." 
+    }
+  ];
+
+  return (
+    <section className="py-24 relative">
+      <div className="container mx-auto px-6">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-12">Questions fréquentes</h2>
+          <div className="space-y-4">
+            {faqs.map((faq, idx) => (
+              <FaqItem key={idx} faq={faq} />
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FaqItem({ faq }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div className="border border-white/10 rounded-xl overflow-hidden glass-card">
+      <button 
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full text-left p-6 flex items-center justify-between focus:outline-none"
+      >
+        <span className="font-bold text-lg text-gray-200">{faq.q}</span>
+        <motion.div
+          animate={{ rotate: isOpen ? 180 : 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          <ChevronDown className="w-5 h-5 text-primary-light" />
+        </motion.div>
+      </button>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            className="overflow-hidden"
+          >
+            <div className="p-6 pt-0 text-gray-400 border-t border-white/5 whitespace-pre-line leading-relaxed">
+              {faq.a}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
