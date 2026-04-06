@@ -53,17 +53,18 @@ export function Hero() {
 
           <motion.p 
             variants={itemVariants}
-            className="text-xl md:text-2xl text-gray-200 font-medium mb-4"
+            className="text-2xl md:text-3xl lg:text-4xl font-bold mt-8 mb-6 text-transparent bg-clip-text bg-gradient-to-r from-primary-light via-secondary-light to-primary drop-shadow-sm"
           >
-            Ce que vous faites <span className="italic text-white">encore manuellement</span> peut déjà être automatisé.
+            Votre business tourne, même quand vous ne travaillez pas.
           </motion.p>
 
-          <motion.p 
+          <motion.div 
             variants={itemVariants}
-            className="text-lg text-gray-400 mb-12 max-w-2xl mx-auto font-light leading-relaxed"
+            className="text-base md:text-lg text-gray-300 mb-12 max-w-2xl mx-auto font-medium leading-relaxed flex flex-col gap-1"
           >
-            Pendant que vous travaillez, votre système informatique pourrait déjà chercher vos futurs clients et planifier vos rendez-vous.
-          </motion.p>
+            <p>Un système qui s'adapte à votre métier et travaille à votre place.</p>
+            <p>Ne perdez plus jamais un client à cause d'un manque de suivi ou de réactivité.</p>
+          </motion.div>
 
           <motion.div 
             variants={itemVariants}
