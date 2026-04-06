@@ -5,7 +5,6 @@ import { ProblemSection } from './components/sections/ProblemSection';
 import { SolutionSection } from './components/sections/SolutionSection';
 import { PricingSection } from './components/sections/PricingSection';
 import { PortfolioSection } from './components/sections/PortfolioSection';
-import { CaseStudiesSection } from './components/sections/CaseStudiesSection';
 import { ComparisonSection } from './components/sections/ComparisonSection';
 import { FounderSection } from './components/sections/FounderSection';
 import { ProcessSection } from './components/sections/ProcessSection';
@@ -22,7 +21,6 @@ function App() {
       <SolutionSection />
       <PricingSection />
       <PortfolioSection />
-      <CaseStudiesSection />
       <ComparisonSection />
       <FounderSection />
       <ProcessSection />

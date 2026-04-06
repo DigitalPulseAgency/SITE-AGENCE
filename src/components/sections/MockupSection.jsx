@@ -89,7 +89,7 @@ export function MockupSection() {
                 {/* Header Actions */}
                 <div className="flex justify-between items-center bg-white/5 p-4 rounded-xl">
                   <div>
-                    <h3 className="text-lg font-bold text-white">Tableau de bord 📊</h3>
+                    <h3 className="text-lg font-bold text-white">Tableau de bord</h3>
                     <p className="text-xs text-gray-400">Suivi en direct de vos logements et réservations.</p>
                   </div>
                   <div className="flex items-center gap-4">
