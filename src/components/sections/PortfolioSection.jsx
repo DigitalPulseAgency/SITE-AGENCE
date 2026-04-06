@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { 
   Car, Building2, Wind, Sparkles, Hammer, 
   CheckCircle, Star, Phone, ArrowRight, ShieldCheck,
-  MapPin, Clock, Mail, ChevronRight, Droplet
+  MapPin, Clock, Mail, ChevronRight, Droplet, Calendar
 } from 'lucide-react';
 
 export function PortfolioSection() {
