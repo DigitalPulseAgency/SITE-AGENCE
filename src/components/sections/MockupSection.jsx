@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { 
   LayoutDashboard, Users, UserPlus, FileText, 
@@ -8,6 +9,27 @@ import {
 } from 'lucide-react';
 
 export function MockupSection() {
+  const containerRef = useRef(null);
+  const [scale, setScale] = useState(1);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (containerRef.current) {
+        // La largeur disponible moins les padding potentiels si containerRef est le parent direct
+        const width = containerRef.current.clientWidth;
+        if (width < 1024) {
+          setScale(width / 1024);
+        } else {
+          setScale(1);
+        }
+      }
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   return (
     <section className="py-24 relative overflow-hidden" id="demonstration">
       <div className="container mx-auto px-6">
@@ -39,17 +61,20 @@ export function MockupSection() {
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="max-w-5xl mx-auto w-full"
-          style={{ containerType: 'inline-size' }}
         >
-          {/* Wrapper responsif conservant le ratio d'aspect */}
+          {/* Wrapper responsif conservant le ratio d'aspect exact de hauteur calculé manuellement 
+              si on scale, la hauteur réelle du composant doit aussi changer ! */}
           <div 
+            ref={containerRef}
             className="relative w-full"
-            style={{ aspectRatio: '1024 / 750' }}
+            style={{ height: `${750 * scale}px` }}
           >
             {/* Conteneur taille fixe desktop redimensionné proportionnellement */}
             <div 
-              className="absolute top-0 left-0 w-[1024px] h-[750px] origin-top-left"
-              style={{ transform: 'scale(calc(min(100cqw, 1024px) / 1024))' }}
+              className="absolute top-0 left-0 w-[1024px] h-[750px] shadow-2xl origin-top-left"
+              style={{ 
+                transform: `scale(${scale})`,
+              }}
             >
               
               {/* Dashboard Container */}
