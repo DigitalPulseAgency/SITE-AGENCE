@@ -25,96 +25,58 @@ export function CtaButton({ children, href, className = "", icon = true, type = 
       whileHover="hover"
       whileTap="tap"
     >
-      {/* --- ONDES DE PULSATION (Le "boom... boom...") --- */}
-      
-      {/* Première onde */}
+      {/* 1. Soft Glowing Pulse Effect (Idle State) */}
       <motion.div
-        className="absolute inset-0 rounded-full bg-accent pointer-events-none"
+        className="absolute -inset-1.5 rounded-full bg-accent blur-[10px] pointer-events-none"
         variants={{
-          rest: {
-            scale: [1, 1.3, 1],
-            opacity: [0.4, 0, 0],
-            transition: { duration: 2, repeat: Infinity, times: [0, 0.4, 1], ease: "easeOut" }
+          rest: { 
+            opacity: [0.15, 0.4, 0.15],
+            scale: [0.98, 1.02, 0.98],
+            transition: { duration: 3, ease: "easeInOut", repeat: Infinity } 
           },
-          hover: {
-            scale: [1.05, 1.5, 1.05],
-            opacity: [0.5, 0, 0],
-            transition: { duration: 1.2, repeat: Infinity, times: [0, 0.6, 1], ease: "easeOut" }
+          hover: { 
+            opacity: 0.6,
+            scale: 1.05,
+            transition: { duration: 0.2, ease: "easeOut" } 
           },
-          tap: { scale: 0.95, opacity: 0 }
-        }}
-      />
-      
-      {/* Deuxième onde (écho) */}
-      <motion.div
-        className="absolute inset-0 rounded-full bg-accent pointer-events-none"
-        variants={{
-          rest: {
-            scale: [1, 1.4, 1],
-            opacity: [0.2, 0, 0],
-            transition: { duration: 2, repeat: Infinity, times: [0, 0.4, 1], delay: 0.2, ease: "easeOut" }
-          },
-          hover: {
-            scale: [1.05, 1.6, 1.05],
-            opacity: [0.3, 0, 0],
-            transition: { duration: 1.2, repeat: Infinity, times: [0, 0.6, 1], delay: 0.2, ease: "easeOut" }
-          },
-          tap: { scale: 0.95, opacity: 0 }
+          tap: { opacity: 0.2, scale: 0.95 }
         }}
       />
 
-      {/* --- BOUTON PRINCIPAL --- */}
+      {/* --- MAIN BUTTON --- */}
       <motion.a
         href={href}
         variants={{
-          rest: {
-            scale: [1, 1.03, 1, 1.03, 1], 
-            boxShadow: [
-              "0 0 10px rgba(16,185,129,0.3)",
-              "0 0 20px rgba(16,185,129,0.6)",
-              "0 0 10px rgba(16,185,129,0.3)",
-              "0 0 20px rgba(16,185,129,0.5)",
-              "0 0 10px rgba(16,185,129,0.3)"
-            ],
-            transition: { duration: 2, repeat: Infinity, times: [0, 0.15, 0.30, 0.45, 1], ease: "easeInOut" }
-          },
-          hover: {
-            scale: [1.05, 1.08, 1.05],
-            boxShadow: [
-              "0 0 20px rgba(16,185,129,0.5)",
-              "0 0 35px rgba(16,185,129,0.8)",
-              "0 0 20px rgba(16,185,129,0.5)"
-            ],
-            transition: { duration: 1.2, repeat: Infinity, ease: "easeInOut" }
-          },
-          tap: { scale: 0.95 }
+          rest: { scale: 1 },
+          hover: { scale: 1.04, transition: { duration: 0.2, ease: "easeInOut" } },
+          tap: { scale: 0.96, transition: { duration: 0.1 } }
         }}
-        className={`relative z-10 text-surface bg-gradient-to-r from-accent to-[#34d399] flex items-center justify-center gap-2 px-8 py-4 font-bold rounded-full overflow-hidden`}
+        className={`relative z-10 text-surface flex items-center justify-center gap-2 px-8 py-4 font-bold rounded-full overflow-hidden`}
       >        
-        {/* Shimmer Effect (Reflet brillant qui passe sur le bouton au survol) */}
-        <div className="absolute inset-0 pointer-events-none">
-           <motion.div 
-             className="w-[150%] h-full bg-gradient-to-r from-transparent via-white/40 to-transparent -skew-x-12"
-             variants={{
-               rest: { x: "-150%", opacity: 0 },
-               hover: { 
-                 x: ["-150%", "150%"], 
-                 opacity: [0, 1, 0],
-                 transition: { duration: 1.5, repeat: Infinity, ease: "easeInOut", repeatDelay: 0.5 }
-               }
-             }}
-           />
-        </div>
+        
+        {/* Animated Background Gradient */}
+        <motion.div
+          className="absolute inset-0 z-0 pointer-events-none"
+          style={{
+            backgroundImage: "linear-gradient(90deg, #10b981, #059669, #10b981, #059669)",
+            backgroundSize: "300% 100%"
+          }}
+          animate={{ backgroundPosition: ["0% 50%", "100% 50%"] }}
+          transition={{ duration: 5, ease: "linear", repeat: Infinity }}
+        />
+
+        {/* Hover Highlight Overlay */}
+        <motion.div
+          className="absolute inset-0 bg-white z-0 pointer-events-none mix-blend-overlay"
+          variants={{
+            rest: { opacity: 0 },
+            hover: { opacity: 0.15 }
+          }}
+        />
 
         {icon && (
-          <motion.div
-            variants={{
-              rest: { rotate: [0, -10, 10, -10, 10, 0] },
-              hover: { rotate: [0, -15, 15, -15, 15, 0] }
-            }}
-            transition={{ duration: 2, repeat: Infinity, times: [0, 0.1, 0.2, 0.3, 0.4, 1] }}
-          >
-            <PhoneCall className="w-5 h-5 fill-surface relative z-10" />
+          <motion.div className="relative z-10">
+            <PhoneCall className="w-5 h-5 fill-surface" />
           </motion.div>
         )}
         <span className="relative z-10 tracking-wide">{children}</span>

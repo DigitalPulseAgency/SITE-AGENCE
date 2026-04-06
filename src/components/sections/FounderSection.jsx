@@ -17,57 +17,39 @@ export function FounderSection() {
           {/* Subtle background glow inside the card */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 rounded-full blur-[80px] pointer-events-none" />
 
-          <div className="flex flex-col md:flex-row gap-10 md:gap-14 items-center relative z-10 text-center md:text-left">
+          <div className="relative z-10 flex flex-col items-center justify-center max-w-3xl mx-auto">
             
-            {/* Photo Container */}
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-              className="shrink-0 group"
-            >
-              <div className="w-56 h-56 md:w-72 md:h-72 rounded-[24px] overflow-hidden relative border border-primary-light/30 shadow-[0_0_25px_rgba(107,50,236,0.15)] transition-all duration-500 group-hover:scale-[1.03] group-hover:shadow-[0_0_35px_rgba(107,50,236,0.25)] group-hover:border-primary-light/50 bg-black">
-                
-                {/* Fallback & Image rendering */}
-                {!imageError ? (
-                  <img 
-                    src="/louis-humbert.png" 
-                    alt="Louis Humbert - Fondateur" 
-                    className="w-full h-full object-cover object-top transition-transform duration-700 relative z-10"
-                    onError={() => setImageError(true)}
-                  />
-                ) : (
-                  <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-zinc-800 to-black flex items-center justify-center">
-                    <span className="text-4xl md:text-6xl font-extrabold text-white/10 tracking-widest font-serif italic">LH</span>
-                  </div>
-                )}
-                
-              </div>
-            </motion.div>
-
             {/* Content Container */}
-            <div className="space-y-6">
-              <div>
-                <h2 className="text-3xl md:text-4xl font-bold mb-2 text-white">Louis Humbert</h2>
-                <p className="text-primary-light font-bold uppercase tracking-wider text-[13px]">
+            <div className="flex flex-col items-center space-y-8 text-center">
+              
+              <div className="space-y-4">
+                <h2 className="text-3xl md:text-5xl font-bold text-white tracking-tight drop-shadow-sm">
+                  Louis Humbert
+                </h2>
+                <div className="w-12 h-1 bg-gradient-to-r from-accent to-primary mx-auto rounded-full"></div>
+                <p className="text-primary-light font-bold uppercase tracking-[0.2em] text-xs md:text-sm">
                   Fondateur — Digital Pulse Agency
                 </p>
               </div>
 
-              <div className="space-y-5 text-gray-300 leading-relaxed text-lg">
-                <p>
+              <div className="space-y-6 text-gray-300 leading-relaxed text-lg md:text-xl">
+                <p className="font-medium text-white italic text-xl md:text-2xl pt-2 pb-2">
                   "J'ai vu trop d'entrepreneurs brillants s'épuiser sur des tâches répétitives qui n'apportent aucune valeur ajoutée."
                 </p>
-                <p>
+                
+                <p className="max-w-2xl mx-auto">
                   Notre mission chez Digital Pulse Agency n'est pas de vous vendre de la technologie. Notre mission est de vous redonner du temps.
                 </p>
-                <p className="font-semibold text-white italic border-l-2 border-accent pl-4">
-                  Si un processus peut être automatisé, nous l'automatisons. Si un site peut vous ramener plus d'appels, nous le construisons.
-                </p>
+                
+                <div className="mt-8 p-6 md:p-8 bg-white/5 border border-white/10 rounded-2xl relative shadow-inner w-full">
+                  <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-accent to-transparent opacity-50 rounded-t-2xl"></div>
+                  <p className="font-semibold text-white">
+                    Si un processus peut être automatisé, nous l'automatisons.<br className="hidden md:block" /> Si un site peut vous ramener plus d'appels, nous le construisons.
+                  </p>
+                </div>
               </div>
-            </div>
 
+            </div>
           </div>
         </motion.div>
       </div>
