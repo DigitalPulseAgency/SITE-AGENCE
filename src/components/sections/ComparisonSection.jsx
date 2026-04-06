@@ -267,15 +267,7 @@ function AiNetworkAnimation() {
          </svg>
       </div>
 
-      {/* Typographie d'ambiance High-Tech */}
-      <div className="absolute bottom-8 left-0 right-0 text-center">
-         <div className="text-[11px] font-mono font-bold text-gray-500 uppercase tracking-[0.25em] animate-pulse">
-           Traitement IA
-         </div>
-         <div className="text-[8px] font-mono text-primary-light/50 mt-1">
-           [ OPTIMISATION . SYSTÈME ]
-         </div>
-      </div>
+
     </div>
   );
 }
