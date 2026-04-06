@@ -3,10 +3,10 @@ import { XCircle } from 'lucide-react';
 
 export function ProblemSection() {
   const problems = [
-    "Vous perdez du temps tous les jours",
-    "Vous ratez des clients",
-    "Vous êtes débordé",
-    "Vous faites trop de choses manuellement"
+    "Vous perdez des clients sans même le savoir",
+    "Vous oubliez de relancer au bon moment",
+    "Vous êtes constamment interrompu par des demandes",
+    "Votre business dépend entièrement de vous"
   ];
 
   return (
@@ -37,7 +37,7 @@ export function ProblemSection() {
             className="mt-16 text-center"
           >
             <p className="text-2xl md:text-3xl font-semibold text-white">
-              Et le problème, c'est que ça se répète <span className="text-red-400">chaque jour.</span>
+              Et pendant ce temps, <span className="text-red-500">vos concurrents récupèrent ces clients</span> à votre place.
             </p>
           </motion.div>
         </div>
