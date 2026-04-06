@@ -35,9 +35,9 @@ export function PricingSection() {
           {/* Sites Internet (Gauché / Dominante Bleue) */}
           <PricingCard
             variants={itemVariants}
-            icon={<Globe className="w-8 h-8 text-secondary-light" />}
+            icon={<Globe className="w-6 h-6 text-secondary-light" />}
             title="SITES INTERNET"
-            valueText="Idéal pour générer plus de clients"
+            valueText="Générer plus de clients"
             price="À partir de 350€"
             colorTheme="blue"
             features={["Rapide", "Moderne", "Orienté conversion"]}
@@ -48,46 +48,20 @@ export function PricingSection() {
           {/* Automatisation Centralisée (Centre / Dominante Vert-Violet / Recommandé) */}
           <PricingCard
             variants={itemVariants}
-            icon={<Zap className="w-8 h-8 text-accent" />}
-            title="AUTOMATISATION CENTRALISÉE"
-            subtitle="Application développée sur mesure"
-            valueText="Idéal pour scaler et gagner du temps"
+            icon={<Zap className="w-6 h-6 text-accent" />}
+            title="AUTOMATISATION"
+            subtitle="Application sur mesure"
+            valueText="Scaler et gagner du temps"
             price="À partir de 1199€"
             colorTheme="green"
             highlight={true}
             features={[
-              "Application sur mesure adaptée à votre activité",
-              "Centralisation complète de vos tâches et outils",
-              "Automatisation des actions répétitives",
-              "Gain de temps et meilleure organisation"
+              "Centralisation de vos tâches",
+              "Automatisation des actions",
+              "Meilleure organisation"
             ]}
           >
-            <div className="mt-8 p-6 rounded-2xl bg-gradient-to-br from-accent/10 to-primary/10 border border-t-accent/20 border-b-primary/20 relative overflow-hidden group">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-accent/20 rounded-full blur-[40px] group-hover:bg-primary/20 transition-colors duration-500"></div>
-              
-              <p className="text-accent font-bold text-xl mb-4 relative z-10">7 jours d'essai gratuit</p>
-              
-              <ul className="text-sm text-gray-300 space-y-3 font-medium relative z-10 mb-6">
-                <li className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0"></div>
-                  Aucun engagement
-                </li>
-                <li className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0"></div>
-                  Vous testez concrètement le système
-                </li>
-                <li className="flex items-start gap-2">
-                  <div className="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 shrink-0"></div>
-                  Vous payez uniquement si vous voyez une différence
-                </li>
-              </ul>
-              
-              <p className="text-white text-[13px] italic font-medium pt-4 border-t border-white/5 relative z-10 text-center">
-                "Vous testez. Vous voyez les résultats. Vous décidez."
-              </p>
-            </div>
-            {/* CTA Bouton de la carte centrale alignable avec les autres s'il le faut, mais le design focus l'essai gratuit. Ajout d'un bouton action optionnel */}
-            <a href="#contact" className="mt-6 flex items-center justify-center w-full px-6 py-4 bg-accent/90 hover:bg-accent text-surface text-sm font-bold rounded-xl transition-all duration-300 shadow-[0_0_15px_rgba(16,185,129,0.3)] hover:scale-105">
+            <a href="#contact" className="mt-auto flex items-center justify-center w-full px-5 py-3 bg-accent/90 hover:bg-accent text-surface text-sm font-bold rounded-lg transition-all duration-300 shadow-[0_0_15px_rgba(16,185,129,0.3)] hover:scale-105">
               Demander un essai
             </a>
           </PricingCard>
@@ -95,19 +69,51 @@ export function PricingSection() {
           {/* Visibilité (Droite / Dominante Violette) */}
           <PricingCard
             variants={itemVariants}
-            icon={<Share2 className="w-8 h-8 text-primary-light" />}
+            icon={<Share2 className="w-6 h-6 text-primary-light" />}
             title="VISIBILITÉ"
-            valueText="Idéal pour être visible et crédible"
+            valueText="Être visible et crédible"
             price="Sur devis"
             colorTheme="purple"
             features={[
-              "Réseaux sociaux (179€/mois)",
+              "Réseaux sociaux (179€/m)",
               "SEO",
-              "Avis Google (99€/mois)"
+              "Avis Google (99€/m)"
             ]}
             ctaText="Découvrir"
           />
         </motion.div>
+
+        {/* 7 Jours d'Essai Gratuit Block (Moved outside and styled as premium floating banner) */}
+        <motion.div
+           initial={{ opacity: 0, y: 30 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           viewport={{ once: true }}
+           transition={{ duration: 0.6, delay: 0.4 }}
+           className="mt-12 max-w-4xl mx-auto p-6 md:p-8 rounded-2xl glass-card bg-gradient-to-br from-accent/5 to-primary/5 border border-white/10 relative overflow-hidden group flex flex-col md:flex-row items-center gap-8 justify-between shadow-2xl"
+        >
+           <div className="absolute top-0 right-0 w-64 h-64 bg-accent/10 rounded-full blur-[60px] pointer-events-none transition-colors duration-500 group-hover:bg-primary/10"></div>
+           
+           <div className="flex-1 relative z-10 text-center md:text-left">
+              <h3 className="text-2xl font-bold text-accent mb-2">7 jours d'essai gratuit</h3>
+              <p className="text-gray-300 font-medium text-sm">Vous testez le système. Vous voyez les résultats. Vous décidez.</p>
+           </div>
+
+           <ul className="text-sm text-gray-300 space-y-3 font-medium relative z-10 flex-1">
+              <li className="flex items-center gap-3">
+                 <div className="w-1.5 h-1.5 rounded-full bg-accent shrink-0"></div>
+                 Aucun engagement
+              </li>
+              <li className="flex items-center gap-3">
+                 <div className="w-1.5 h-1.5 rounded-full bg-accent shrink-0"></div>
+                 Test complet en conditions réelles
+              </li>
+              <li className="flex items-center gap-3">
+                 <div className="w-1.5 h-1.5 rounded-full bg-accent shrink-0"></div>
+                 Facturation uniquement aux résultats
+              </li>
+           </ul>
+        </motion.div>
+
       </div>
     </section>
   );
@@ -115,7 +121,6 @@ export function PricingSection() {
 
 function PricingCard({ variants, icon, title, subtitle, valueText, price, highlight, colorTheme, features, ctaText, ctaHref = "#contact", children }) {
   
-  // Mapping thématiques de couleurs pour les effets
   const themeColors = {
     blue: {
        borderHov: 'hover:border-secondary-light/40 hover:shadow-[0_0_30px_rgba(59,130,246,0.15)]',
@@ -145,60 +150,57 @@ function PricingCard({ variants, icon, title, subtitle, valueText, price, highli
   return (
     <motion.div
       variants={variants}
-      className={`group relative p-8 rounded-3xl border flex flex-col transition-all duration-300 ${
+      className={`group relative p-6 md:p-8 rounded-3xl border flex flex-col transition-all duration-300 ${
         highlight 
-          ? 'bg-surface shadow-[0_0_40px_rgba(16,185,129,0.1),_0_0_40px_rgba(107,50,236,0.1)] border-accent/40 scale-105 z-10' 
-          : `glass-card border-white/5 hover:scale-[1.03] ${currentTheme.borderHov} hover:bg-white/[0.03]`
+          ? 'bg-surface shadow-[0_0_40px_rgba(16,185,129,0.1),_0_0_40px_rgba(107,50,236,0.1)] border-accent/40 z-10 md:-translate-y-4 md:hover:-translate-y-6' 
+          : `glass-card border-white/5 hover:-translate-y-2 ${currentTheme.borderHov} hover:bg-white/[0.03]`
       }`}
     >
-      {/* Background stastique discret pour éviter la carte 100% plate ("Living card effect") */}
       {!highlight && (
         <div className={`absolute top-0 right-0 w-32 h-32 rounded-full blur-[80px] opacity-40 pointer-events-none transition-opacity duration-500 group-hover:opacity-80 ${currentTheme.bgGlow}`} />
       )}
 
       {highlight && (
-        <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-accent to-primary px-6 py-1.5 rounded-full text-surface text-xs font-black tracking-widest shadow-lg">
+        <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-accent to-primary px-4 py-1 rounded-full text-surface text-[10px] font-black tracking-widest shadow-lg">
           RECOMMANDÉ
         </div>
       )}
       
-      <div className="mb-5">{icon}</div>
+      <div className="mb-4">{icon}</div>
 
       <div>
-        <h3 className={`font-black tracking-wide ${highlight ? 'text-2xl text-white mb-1' : 'text-xl text-white mb-2'}`}>
+        <h3 className={`font-black tracking-wide leading-tight ${highlight ? 'text-xl text-white mb-1' : 'text-lg text-white mb-1'}`}>
           {title}
         </h3>
         
         {subtitle && (
-          <p className="text-primary-light text-sm font-bold uppercase tracking-wider mb-2">
+          <p className="text-primary-light text-xs font-bold uppercase tracking-wider mb-1">
             {subtitle}
           </p>
         )}
 
-        {/* Ligne indicateur de valeur demandée */}
         {valueText && (
-          <p className={`text-xs font-bold uppercase tracking-widest mb-6 ${currentTheme.valText}`}>
+          <p className={`text-[10px] font-bold uppercase tracking-widest mb-4 ${currentTheme.valText}`}>
              👉 {valueText}
           </p>
         )}
       </div>
 
-      <div className={`text-4xl font-extrabold mb-8 ${highlight ? 'text-white' : 'text-white drop-shadow-md'}`}>
+      <div className={`text-3xl font-extrabold mb-6 ${highlight ? 'text-white' : 'text-white drop-shadow-md'}`}>
         {price}
       </div>
       
-      <ul className="space-y-4 mb-8 flex-1 relative z-10">
+      <ul className="space-y-3 mb-8 flex-1 relative z-10">
         {features.map((feature, idx) => (
-          <li key={idx} className="flex items-start gap-3 text-gray-300 font-medium">
-            <Check className={`w-5 h-5 shrink-0 ${highlight ? 'text-accent' : currentTheme.iconText}`} />
-            <span className="pt-0.5">{feature}</span>
+          <li key={idx} className="flex items-start gap-2 text-sm text-gray-300 font-medium">
+            <Check className={`w-4 h-4 shrink-0 mt-0.5 ${highlight ? 'text-accent' : currentTheme.iconText}`} />
+            <span>{feature}</span>
           </li>
         ))}
       </ul>
       
       {children}
 
-      {/* Mini Call To Action pour les cartes gauches / droites */}
       {!highlight && ctaText && (
          <a href={ctaHref} className={`mt-auto flex items-center justify-center gap-2 w-full px-5 py-3 rounded-lg text-sm font-bold transition-all duration-300 ${currentTheme.btn} group-hover:scale-105`}>
             {ctaText} <ArrowRight className="w-4 h-4 ml-1 opacity-70 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
