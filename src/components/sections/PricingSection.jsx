@@ -42,6 +42,7 @@ export function PricingSection() {
             colorTheme="blue"
             features={["Rapide", "Moderne", "Orienté conversion"]}
             ctaText="Voir des exemples"
+            ctaHref="#sites-internet"
           />
 
           {/* Automatisation Centralisée (Centre / Dominante Vert-Violet / Recommandé) */}
@@ -112,7 +113,7 @@ export function PricingSection() {
   );
 }
 
-function PricingCard({ variants, icon, title, subtitle, valueText, price, highlight, colorTheme, features, ctaText, children }) {
+function PricingCard({ variants, icon, title, subtitle, valueText, price, highlight, colorTheme, features, ctaText, ctaHref = "#contact", children }) {
   
   // Mapping thématiques de couleurs pour les effets
   const themeColors = {
@@ -199,7 +200,7 @@ function PricingCard({ variants, icon, title, subtitle, valueText, price, highli
 
       {/* Mini Call To Action pour les cartes gauches / droites */}
       {!highlight && ctaText && (
-         <a href="#contact" className={`mt-auto flex items-center justify-center gap-2 w-full px-5 py-3 rounded-lg text-sm font-bold transition-all duration-300 ${currentTheme.btn} group-hover:scale-105`}>
+         <a href={ctaHref} className={`mt-auto flex items-center justify-center gap-2 w-full px-5 py-3 rounded-lg text-sm font-bold transition-all duration-300 ${currentTheme.btn} group-hover:scale-105`}>
             {ctaText} <ArrowRight className="w-4 h-4 ml-1 opacity-70 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
          </a>
       )}
