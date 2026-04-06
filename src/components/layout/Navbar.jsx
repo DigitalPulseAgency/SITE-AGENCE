@@ -31,17 +31,19 @@ export function Navbar() {
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
         
-        {/* --- ZONE GAUCHE : Logo ---
-            Utilise flex-1 sur desktop pour garantir le parfait centrage du menu au milieu.
-            Sur mobile, prend tout l'espace requis. */}
-        <div className="flex md:flex-1 justify-center md:justify-start w-full md:w-auto">
+        {/* --- ZONE GAUCHE MOBILE (Spacer pour équilibrer) --- */}
+        <div className="flex-1 flex justify-start md:hidden">
+          {/* Espace libre pour un futur menu hamburger si besoin */}
+        </div>
+
+        {/* --- ZONE LOGO (Centré sur mobile, Gauche sur desktop) --- */}
+        <div className="flex md:flex-1 justify-center md:justify-start z-20">
           <div 
             className="group flex items-center gap-3 cursor-pointer" 
             onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}
           >
             {/* Icône avec animations */}
             <div className="relative flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
-              {/* Particules d'énergie */}
               <div className="absolute inset-0 pointer-events-none hidden md:block">
                 {[...Array(3)].map((_, i) => (
                   <div 
@@ -57,14 +59,13 @@ export function Navbar() {
                 ))}
               </div>
               
-              {/* Icône (Photo) */}
               <div className="w-10 h-10 md:w-12 md:h-12 relative animate-brain-pulse group-hover:[animation-duration:1.5s]">
                 <img 
                   src="/logo.png" 
                   alt="Logo Digital Pulse" 
                   className="w-full h-full object-contain"
                   onError={(e) => {
-                    e.target.style.display = 'none'; // Garde la structure si pas d'image
+                    e.target.style.display = 'none';
                   }}
                 />
               </div>
@@ -79,7 +80,6 @@ export function Navbar() {
             >
               <div className="font-extrabold text-xl md:text-2xl tracking-tighter leading-none flex items-center gap-1.5">
                 <span className="text-white">DIGITAL</span>
-                {/* Texte "Pulse" avec Shimmer Effect */}
                 <span 
                   className="text-primary-light"
                   style={{
@@ -98,20 +98,21 @@ export function Navbar() {
           </div>
         </div>
         
-        {/* --- ZONE CENTRE : Menu de Navigation ---
-            Parfaitement centré car logé entre deux conteneurs de taille égale (md:flex-1) */}
-        <div className="hidden md:flex items-center justify-center gap-8 text-sm font-medium text-gray-300 shrink-0">
+        {/* --- ZONE CENTRE : Menu de Navigation (Desktop) --- */}
+        <div className="hidden md:flex items-center justify-center gap-8 text-sm font-medium text-gray-300 shrink-0 z-10">
           <button onClick={() => scrollTo('comparaison')} className="hover:text-white transition-colors">Automatisation</button>
           <button onClick={() => scrollTo('sites-internet')} className="hover:text-white transition-colors">Sites internet</button>
           <button onClick={() => scrollTo('contact')} className="hover:text-white transition-colors">Contact</button>
         </div>
 
-        {/* --- ZONE DROITE : Bouton CTA --- 
-            Utilise flex-1 pour équilibrer parfaitement le logo et garantir le centrage mathématique de la zone centrale. */}
-        <div className="hidden md:flex md:flex-1 justify-end">
-          <CtaButton href="#contact" className="px-5 py-2.5 text-sm">
-            Appeler maintenant
-          </CtaButton>
+        {/* --- ZONE DROITE : Bouton CTA / Spacer Mobile --- */}
+        <div className="flex-1 flex justify-end z-20">
+          <div className="hidden md:block">
+            <CtaButton href="#contact" className="px-5 py-2.5 text-sm">
+              Appeler maintenant
+            </CtaButton>
+          </div>
+          {/* Espace libre pour un bouton CTA mobile si développé plus tard */}
         </div>
 
       </div>
