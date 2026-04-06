@@ -9,92 +9,137 @@ export function PortfolioSection() {
   const sites = [
     { 
       name: "RentLux", 
-      niche: "Location de voitures", 
-      color: "from-amber-600 to-orange-800",
+      title: "Location premium", 
+      desc: "Processus de réservation 24/7 en ligne centré sur un parcours client 100% automatisé et sans friction.",
+      tags: ["+ de réservations", "Paiement en ligne"],
+      glowColor: "group-hover:shadow-[0_0_40px_rgba(217,119,6,0.15)] group-hover:border-amber-500/30",
       content: <LocationCarsMiniSite />
     },
     { 
       name: "Elite Conciergerie", 
-      niche: "Conciergerie immobilière", 
-      color: "from-stone-600 to-stone-900",
+      title: "Conciergerie", 
+      desc: "Création d'un système qui rassure les propriétaires d'appartements et met en valeur les prestations hôtelières.",
+      tags: ["+ de leads", "Acquisition propriétaire"],
+      glowColor: "group-hover:shadow-[0_0_40px_rgba(250,250,250,0.1)] group-hover:border-white/20",
       content: <ConciergerieMiniSite />
     },
     { 
       name: "ClimPro", 
-      niche: "Climatisation", 
-      color: "from-cyan-500 to-blue-700",
+      title: "Experts Climatisation", 
+      desc: "Mise en avant des interventions d'urgence avec un module de demande de devis express connecté au CRM.",
+      tags: ["+ de devis", "Automatisation"],
+      glowColor: "group-hover:shadow-[0_0_40px_rgba(59,130,246,0.15)] group-hover:border-blue-500/30",
       content: <ClimatisationMiniSite />
     },
     { 
       name: "Azur Piscines", 
-      niche: "Pisciniste", 
-      color: "from-sky-400 to-blue-600",
+      title: "Construction", 
+      desc: "Portfolio visuel immersif démontrant 10 ans d'expertise pour capter des études de faisabilité haute valeur.",
+      tags: ["Prise de rendez-vous", "Image de marque"],
+      glowColor: "group-hover:shadow-[0_0_40px_rgba(6,182,212,0.15)] group-hover:border-cyan-500/30",
       content: <PiscinisteMiniSite />
     },
     { 
       name: "CleanAuto", 
-      niche: "Nettoyage automobile", 
-      color: "from-emerald-500 to-teal-800",
+      title: "Centre detailing", 
+      desc: "Système de vente de forfaits ultra clair avec la réservation de créneaux synchronisée sur le site.",
+      tags: ["Créneaux synchronisés", "+ de CA"],
+      glowColor: "group-hover:shadow-[0_0_40px_rgba(16,185,129,0.15)] group-hover:border-emerald-500/30",
       content: <NettoyageMiniSite />
     },
     { 
       name: "BâtiFutur", 
-      niche: "Artisans du bâtiment", 
-      color: "from-yellow-600 to-amber-900",
+      title: "Gros & Second Œuvre", 
+      desc: "Un espace de preuve sociale avec avis authentifiés et outil d'estimation de chantier en direct pour qualifier les visites.",
+      tags: ["Devis qualifiés", "Confiance client"],
+      glowColor: "group-hover:shadow-[0_0_40px_rgba(245,158,11,0.15)] group-hover:border-yellow-500/30",
       content: <ArtisanMiniSite />
     },
   ];
 
   return (
-    <section className="py-24 bg-surface relative" id="sites-internet">
+    <section className="py-32 bg-background relative overflow-hidden" id="sites-internet">
+      
+      {/* Background ambient light */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary-light/5 rounded-full blur-[150px] pointer-events-none mix-blend-screen" />
+      
       <div className="container mx-auto px-6 relative z-10">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">Aperçus des conceptions</h2>
-          <p className="text-gray-400">Survolez un site pour le faire défiler automatiquement et découvrir son contenu complet.</p>
+        
+        {/* Intro Structure */}
+        <div className="text-center mb-20">
+          <motion.h2 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-5xl font-bold mb-6"
+          >
+            Des systèmes pensés pour <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-secondary-light">chaque métier</span>
+          </motion.h2>
+          <motion.p 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
+          >
+            Chaque projet est conçu pour générer plus de clients, automatiser le suivi et simplifier votre quotidien. Ce ne sont pas de simples galeries, ce sont de vrais moteurs d'acquisition.
+          </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        {/* Portfolio Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-16">
           {sites.map((site, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="group relative rounded-2xl overflow-hidden border border-white/10 hover:border-primary/50 transition-colors bg-[#0a0a0a] shadow-2xl flex flex-col h-[450px]"
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.7, delay: i * 0.15, ease: "easeOut" }}
+              className="flex flex-col gap-6 group cursor-pointer"
             >
-              {/* Fake browser header */}
-              <div className="bg-zinc-900/90 backdrop-blur-md border-b border-white/10 px-4 py-3 flex items-center gap-2 z-30 shrink-0">
-                <div className="flex gap-1.5 shrink-0">
-                  <div className="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
-                  <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
-                  <div className="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
+              {/* Browser Mockup */}
+              <div className={`relative rounded-2xl overflow-hidden border border-white/10 bg-[#0a0a0a] transition-all duration-500 md:group-hover:-translate-y-3 shadow-lg h-[420px] flex flex-col ${site.glowColor}`}>
+                
+                {/* Fake browser header */}
+                <div className="bg-zinc-900/90 backdrop-blur-md border-b border-white/10 px-4 py-3 flex items-center gap-2 z-30 shrink-0">
+                  <div className="flex gap-1.5 shrink-0">
+                    <div className="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-green-500/80"></div>
+                  </div>
+                  <div className="mx-auto text-[10px] text-gray-400 font-mono bg-zinc-800/80 px-4 py-1 flex items-center justify-center rounded-full truncate max-w-[150px] gap-1 group-hover:text-primary-light transition-colors duration-300">
+                    <ShieldCheck className="w-3 h-3 group-hover:text-primary-light text-green-400 transition-colors" />
+                    {site.name.toLowerCase().replace(' ', '').replace('é', 'e')}.fr
+                  </div>
                 </div>
-                <div className="mx-auto text-[10px] text-gray-400 font-mono bg-zinc-800/80 px-4 py-1 rounded-full truncate max-w-[150px] flex items-center gap-1">
-                  <ShieldCheck className="w-3 h-3 text-green-400" />
-                  {site.name.toLowerCase().replace(' ', '')}.fr
+                
+                {/* Content with Scroll Effect */}
+                <div className="relative flex-1 overflow-y-auto md:overflow-hidden bg-black touch-pan-y scrollbar-hide">
+                  <div className="w-full md:transition-transform md:duration-[8000ms] md:ease-linear md:group-hover:-translate-y-[calc(100%-377px)]">
+                    {site.content}
+                  </div>
+                  {/* Faded bottom gradient inside the mockup to hint at more content */}
+                  <div className="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-[#0a0a0a] to-transparent pointer-events-none md:group-hover:opacity-0 transition-opacity duration-300"></div>
                 </div>
               </div>
               
-              {/* Image / Content with scroll effect */}
-              {/* on Mobile: scrollable vertically. on Desktop: hidden overflow, animates on hover */}
-              <div className="relative flex-1 overflow-y-auto md:overflow-hidden bg-black touch-pan-y scrollbar-hide">
-                
-                {/* The Scrolling DOM Wrapper */}
-                <div 
-                  className="w-full md:transition-transform md:duration-[8000ms] md:ease-linear md:group-hover:-translate-y-[calc(100%-407px)]"
-                >
-                  {site.content}
-                </div>
-                
-                {/* Content Overlay (disappears on hover) */}
-                <div className="hidden md:block absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black via-black/80 to-transparent z-20 pointer-events-none group-hover:opacity-0 transition-opacity duration-300">
-                  <span className="text-white/60 text-[10px] font-bold tracking-wider uppercase mb-1 block">
-                    {site.niche}
-                  </span>
-                  <h3 className="text-xl font-bold text-white">{site.name}</h3>
-                </div>
+              {/* Storytelling Metadata */}
+              <div className="px-1 flex flex-col">
+                 <div className="flex items-center gap-2 mb-3 flex-wrap">
+                    {site.tags.map((tag, idx) => (
+                      <span key={idx} className="text-[10px] uppercase tracking-wider font-bold px-3 py-1 rounded-full border border-white/10 bg-white/5 text-gray-300 shadow-sm">
+                         {tag}
+                      </span>
+                    ))}
+                 </div>
+                 <h3 className="text-xl md:text-2xl font-bold text-white mb-2 tracking-tight group-hover:text-primary-light transition-colors duration-300 flex items-center flex-wrap gap-2">
+                    {site.name} <span className="text-gray-500 font-medium text-base ml-1">— {site.title}</span>
+                 </h3>
+                 <p className="text-sm text-gray-400 font-medium leading-relaxed">
+                    {site.desc}
+                 </p>
               </div>
+
             </motion.div>
           ))}
         </div>
