@@ -72,22 +72,33 @@ export function Hero() {
           >
             {/* Primary animated CTA Container */}
             <motion.div 
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
+              animate={{ 
+                scale: [1, 1.03, 1],
+              }}
+              transition={{ 
+                duration: 2.5, 
+                repeat: Infinity, 
+                ease: "easeInOut" 
+              }}
+              whileHover={{ scale: 1.06 }}
+              whileTap={{ scale: 0.95 }}
               className="w-full sm:w-auto relative group"
             >
               {/* Glow box underneath */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-accent to-primary rounded-[40px] blur opacity-30 group-hover:opacity-70 transition duration-500 animate-pulse-slow"></div>
+              <div className="absolute -inset-2 bg-gradient-to-r from-[#10b981] to-[#047857] rounded-full blur-[15px] opacity-60 group-hover:opacity-100 transition duration-500 animate-pulse-slow"></div>
               
               <a 
                 href="tel:0615940884" 
-                className="relative flex items-center justify-center w-full px-10 py-5 bg-accent text-surface text-lg font-bold rounded-[40px] shadow-2xl transition-all duration-300"
+                className="relative flex items-center justify-center w-full px-10 py-5 font-bold rounded-full shadow-2xl transition-all duration-300 overflow-hidden bg-accent text-surface text-lg border border-[#10b981]/50"
               >
-                {/* Shine effect inside button */}
-                <div className="absolute inset-0 overflow-hidden rounded-[40px]">
-                  <div className="absolute top-0 -inset-full h-full w-1/2 block transform -skew-x-12 bg-white opacity-20 hover:animate-[shimmer_1.5s_infinite] pointer-events-none" />
+                {/* Shine effect inside button (permanent) */}
+                <div className="absolute inset-0 z-0 pointer-events-none">
+                  <div className="absolute top-0 -inset-full h-full w-1/2 block transform -skew-x-12 bg-gradient-to-r from-transparent via-white/40 to-transparent animate-[shimmer_2s_infinite]" />
                 </div>
-                Appeler maintenant
+                <div className="relative z-10 flex items-center gap-2 drop-shadow-md">
+                   <PhoneIcon />
+                   Appeler maintenant
+                </div>
               </a>
             </motion.div>
             
