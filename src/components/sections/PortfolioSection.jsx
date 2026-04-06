@@ -10,16 +10,20 @@ export function PortfolioSection() {
     { 
       name: "RentLux", 
       title: "Location premium", 
-      desc: "Processus de réservation 24/7 en ligne centré sur un parcours client 100% automatisé et sans friction.",
+      desc: "Processus de réservation 24/7 en ligne centré sur un parcours client 100% automatisé.",
       tags: ["+ de réservations", "Paiement en ligne"],
+      benefits: ["Prise de rendez-vous automatique", "Gestion centralisée du calendrier", "Suivi client automatisé"],
+      result: "+45% de réservations en ligne",
       glowColor: "group-hover:shadow-[0_0_40px_rgba(217,119,6,0.15)] group-hover:border-amber-500/30",
       content: <LocationCarsMiniSite />
     },
     { 
       name: "Elite Conciergerie", 
       title: "Conciergerie", 
-      desc: "Création d'un système qui rassure les propriétaires d'appartements et met en valeur les prestations hôtelières.",
+      desc: "Création d'un système qui rassure les propriétaires d'appartements et met en valeur les prestations.",
       tags: ["+ de leads", "Acquisition propriétaire"],
+      benefits: ["Simulateur de revenus intégré", "Design rassurant et premium", "Génération de leads qualifiés"],
+      result: "x2 nouveaux propriétaires/mois",
       glowColor: "group-hover:shadow-[0_0_40px_rgba(250,250,250,0.1)] group-hover:border-white/20",
       content: <ConciergerieMiniSite />
     },
@@ -28,30 +32,38 @@ export function PortfolioSection() {
       title: "Experts Climatisation", 
       desc: "Mise en avant des interventions d'urgence avec un module de demande de devis express connecté au CRM.",
       tags: ["+ de devis", "Automatisation"],
+      benefits: ["Formulaire de devis qualifiant", "Appel d'urgence 1-clic", "Intégration directe au CRM"],
+      result: "+60% de demandes entrantes",
       glowColor: "group-hover:shadow-[0_0_40px_rgba(59,130,246,0.15)] group-hover:border-blue-500/30",
       content: <ClimatisationMiniSite />
     },
     { 
       name: "Azur Piscines", 
       title: "Construction", 
-      desc: "Portfolio visuel immersif démontrant 10 ans d'expertise pour capter des études de faisabilité haute valeur.",
+      desc: "Portfolio visuel immersif démontrant 10 ans d'expertise pour capter des études de faisabilité.",
       tags: ["Prise de rendez-vous", "Image de marque"],
+      benefits: ["Galerie immersive de réalisations", "Prise de rdv automatisée", "Qualification du budget client"],
+      result: "+35% de chantiers signés",
       glowColor: "group-hover:shadow-[0_0_40px_rgba(6,182,212,0.15)] group-hover:border-cyan-500/30",
       content: <PiscinisteMiniSite />
     },
     { 
       name: "CleanAuto", 
       title: "Centre detailing", 
-      desc: "Système de vente de forfaits ultra clair avec la réservation de créneaux synchronisée sur le site.",
+      desc: "Système de vente de forfaits ultra clair avec la réservation de créneaux synchronisée.",
       tags: ["Créneaux synchronisés", "+ de CA"],
+      benefits: ["Présentation claire des forfaits", "Paiement d'acompte en ligne", "Rappels SMS automatiques"],
+      result: "+28% de ventes Premium",
       glowColor: "group-hover:shadow-[0_0_40px_rgba(16,185,129,0.15)] group-hover:border-emerald-500/30",
       content: <NettoyageMiniSite />
     },
     { 
       name: "BâtiFutur", 
       title: "Gros & Second Œuvre", 
-      desc: "Un espace de preuve sociale avec avis authentifiés et outil d'estimation de chantier en direct pour qualifier les visites.",
+      desc: "Un espace de preuve sociale avec avis authentifiés et outil d'estimation de chantier en direct.",
       tags: ["Devis qualifiés", "Confiance client"],
+      benefits: ["Estimateur en ligne interactif", "Valorisation des avis clients", "Vitrine de réassurance absolue"],
+      result: "Qualité des appels x3",
       glowColor: "group-hover:shadow-[0_0_40px_rgba(245,158,11,0.15)] group-hover:border-yellow-500/30",
       content: <ArtisanMiniSite />
     },
@@ -66,39 +78,39 @@ export function PortfolioSection() {
       <div className="container mx-auto px-6 relative z-10">
         
         {/* Intro Structure */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-24">
           <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-4xl md:text-5xl font-bold mb-6"
           >
-            Des systèmes pensés pour <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-secondary-light">chaque métier</span>
+            Des sites pensés pour <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-secondary-light">convertir</span>
           </motion.h2>
           <motion.p 
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
             className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
           >
-            Chaque projet est conçu pour générer plus de clients, automatiser le suivi et simplifier votre quotidien. Ce ne sont pas de simples galeries, ce sont de vrais moteurs d'acquisition.
+            Chaque site est conçu pour attirer, convaincre et transformer vos visiteurs en clients.
           </motion.p>
         </div>
 
         {/* Portfolio Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-20">
           {sites.map((site, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 60 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.7, delay: i * 0.15, ease: "easeOut" }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, delay: i * 0.15, ease: "easeOut" }}
               className="flex flex-col gap-6 group cursor-pointer"
             >
               {/* Browser Mockup */}
-              <div className={`relative rounded-2xl overflow-hidden border border-white/10 bg-[#0a0a0a] transition-all duration-500 md:group-hover:-translate-y-3 shadow-lg h-[420px] flex flex-col ${site.glowColor}`}>
+              <div className={`relative rounded-2xl overflow-hidden border border-white/10 bg-[#0a0a0a] transition-all duration-700 md:group-hover:scale-[1.03] md:group-hover:-translate-y-4 shadow-xl h-[500px] md:h-[600px] flex flex-col ${site.glowColor}`}>
                 
                 {/* Fake browser header */}
                 <div className="bg-zinc-900/90 backdrop-blur-md border-b border-white/10 px-4 py-3 flex items-center gap-2 z-30 shrink-0">
@@ -115,29 +127,43 @@ export function PortfolioSection() {
                 
                 {/* Content with Scroll Effect */}
                 <div className="relative flex-1 overflow-y-auto md:overflow-hidden bg-black touch-pan-y scrollbar-hide">
-                  <div className="w-full md:transition-transform md:duration-[8000ms] md:ease-linear md:group-hover:-translate-y-[calc(100%-377px)]">
+                  <div className="w-full transition-transform duration-[8000ms] ease-linear md:group-hover:-translate-y-[calc(100%-480px)]">
                     {site.content}
                   </div>
                   {/* Faded bottom gradient inside the mockup to hint at more content */}
-                  <div className="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-[#0a0a0a] to-transparent pointer-events-none md:group-hover:opacity-0 transition-opacity duration-300"></div>
+                  <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#0a0a0a] to-transparent pointer-events-none md:group-hover:opacity-0 transition-opacity duration-300"></div>
                 </div>
               </div>
               
               {/* Storytelling Metadata */}
-              <div className="px-1 flex flex-col">
-                 <div className="flex items-center gap-2 mb-3 flex-wrap">
+              <div className="px-2 flex flex-col">
+                 <div className="flex items-center gap-2 mb-4 flex-wrap">
                     {site.tags.map((tag, idx) => (
-                      <span key={idx} className="text-[10px] uppercase tracking-wider font-bold px-3 py-1 rounded-full border border-white/10 bg-white/5 text-gray-300 shadow-sm">
+                      <span key={idx} className="text-[10px] uppercase tracking-wider font-bold px-3 py-1.5 rounded-full border border-white/10 bg-white/5 text-gray-200 shadow-sm">
                          {tag}
                       </span>
                     ))}
+                    <div className="ml-auto text-xs font-black text-primary-light px-3 py-1.5 bg-primary/10 rounded-full border border-primary/20 animate-pulse-slow">
+                      {site.result}
+                    </div>
                  </div>
-                 <h3 className="text-xl md:text-2xl font-bold text-white mb-2 tracking-tight group-hover:text-primary-light transition-colors duration-300 flex items-center flex-wrap gap-2">
-                    {site.name} <span className="text-gray-500 font-medium text-base ml-1">— {site.title}</span>
+                 
+                 <h3 className="text-2xl md:text-3xl font-bold text-white mb-2 tracking-tight group-hover:text-primary-light transition-colors duration-300 flex items-center flex-wrap gap-2">
+                    {site.name} <span className="text-gray-400 font-medium text-lg ml-1">— {site.title}</span>
                  </h3>
-                 <p className="text-sm text-gray-400 font-medium leading-relaxed">
+                 
+                 <p className="text-base text-gray-400 font-medium leading-relaxed mb-4">
                     {site.desc}
                  </p>
+                 
+                 <ul className="space-y-2 mt-auto pt-4 border-t border-white/5">
+                    {site.benefits.map((benefit, idx) => (
+                       <li key={idx} className="flex items-start gap-2.5 text-sm text-gray-300">
+                          <CheckCircle className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+                          <span>{benefit}</span>
+                       </li>
+                    ))}
+                 </ul>
               </div>
 
             </motion.div>
@@ -493,40 +519,49 @@ function PiscinisteMiniSite() {
 function NettoyageMiniSite() {
   return (
     <div className="flex flex-col bg-zinc-950 text-zinc-100 w-full">
-      {/* Hero */}
-      <div className="relative h-[250px] overflow-hidden">
+      {/* Hero Section */}
+      <div className="relative h-[280px] overflow-hidden bg-zinc-900 border-b border-emerald-900/20">
         <img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&w=600&q=80" className="w-full h-full object-cover" alt="Car washing" />
-        <div className="absolute inset-0 bg-gradient-to-r from-emerald-950/90 to-black/60"></div>
-        <div className="absolute inset-0 p-6 flex flex-col justify-center">
-           <div className="w-10 h-10 bg-emerald-500 rounded-lg flex items-center justify-center mb-4 shadow-[0_0_15px_rgba(16,185,129,0.5)]">
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-zinc-950"></div>
+        <div className="absolute inset-0 p-6 flex flex-col items-center justify-center text-center">
+           <div className="w-12 h-12 bg-emerald-500 rounded-xl flex items-center justify-center mb-4 shadow-[0_0_20px_rgba(16,185,129,0.4)]">
               <Sparkles className="w-6 h-6 text-black" />
            </div>
-           <h1 className="text-3xl font-extrabold italic tracking-tight mb-1 text-white">CLEAN<span className="text-emerald-500">AUTO</span></h1>
-           <p className="text-[10px] text-emerald-100 font-medium">Detailing & Lavage premium sur mesure.</p>
+           <h1 className="text-3xl md:text-4xl font-extrabold italic tracking-tight mb-2 text-white">CLEAN<span className="text-emerald-500">AUTO</span></h1>
+           <p className="text-[11px] text-emerald-100/90 font-bold uppercase tracking-widest bg-black/40 px-3 py-1 rounded-full border border-emerald-500/20">Detailing & Lavage Premium</p>
         </div>
       </div>
       
-      <div className="bg-emerald-500 text-black text-[9px] font-bold uppercase tracking-widest text-center py-2.5">
-         ★ Réservation Rapide ★
+      {/* Action Bar - Clean & Non-Overlapping */}
+      <div className="bg-zinc-950 px-5 pt-8 pb-4 relative z-20">
+        <div className="flex gap-3">
+          <button className="flex-1 bg-emerald-500 hover:bg-emerald-400 transition-colors text-black font-bold text-[11px] py-3.5 rounded-xl shadow-lg shadow-emerald-500/20 uppercase tracking-widest flex items-center justify-center gap-2">
+            PRENDRE RDV <ArrowRight className="w-3 h-3" />
+          </button>
+          <button className="w-12 bg-zinc-800 border border-zinc-700 rounded-xl flex items-center justify-center text-emerald-500 hover:bg-zinc-700 hover:text-white transition-colors">
+            <Calendar className="w-5 h-5" />
+          </button>
+        </div>
       </div>
       
       {/* Services / Forfaits */}
-      <div className="p-6 bg-zinc-900">
-         <div className="flex justify-between items-end mb-4">
-            <h2 className="text-sm font-bold text-white">Nos Forfaits</h2>
-            <span className="text-[9px] text-emerald-500 cursor-pointer">Voir tout</span>
+      <div className="px-5 pb-8 pt-4 bg-zinc-950 relative z-10 w-full">
+         <div className="flex justify-between items-end mb-5">
+            <h2 className="text-[13px] uppercase tracking-widest font-bold text-white/90">Nos Forfaits</h2>
+            <span className="text-[10px] text-emerald-500 font-bold cursor-pointer hover:text-emerald-400">VOIR TOUT</span>
          </div>
-         <div className="space-y-4">
-            <div className="bg-zinc-800 p-4 rounded-xl border border-zinc-700 relative overflow-hidden transition-transform hover:scale-[1.02]">
-               <div className="absolute top-0 right-0 bg-zinc-700 text-[8px] px-2 py-1 font-bold text-white">CLASSIQUE</div>
-               <div className="text-xl font-bold text-white mb-2">49€</div>
-               <div className="text-[9px] text-gray-400 mb-2">Aspiration, plastiques, vitres, et lavage extérieur à la main.</div>
+         <div className="space-y-5">
+            <div className="bg-zinc-900/80 p-5 rounded-2xl border border-zinc-800/80 relative overflow-hidden transition-transform hover:scale-[1.02] hover:border-zinc-700">
+               <div className="absolute top-0 right-0 bg-zinc-800/80 text-[8px] px-3 py-1.5 font-bold tracking-widest text-zinc-300 rounded-bl-lg">CLASSIQUE</div>
+               <div className="text-2xl font-black text-white mb-2">49€</div>
+               <div className="text-[10px] leading-relaxed text-gray-400 mb-2">Aspiration complète, plastiques, vitres intérieures/extérieures, et lavage extérieur à la main minutieux.</div>
             </div>
             
-            <div className="bg-gradient-to-br from-emerald-900/40 to-zinc-800 p-4 rounded-xl border border-emerald-500/50 relative overflow-hidden shadow-[0_0_20px_rgba(16,185,129,0.15)] transition-transform hover:scale-[1.02]">
-               <div className="absolute top-0 right-0 bg-emerald-500 text-[8px] text-black px-2 py-1 font-bold">PREMIUM</div>
-               <div className="text-xl font-bold text-emerald-400 mb-2">129€</div>
-               <div className="text-[9px] text-emerald-100/70 mb-2">Shampoing complet des sièges, pressing moquettes, cire de protection carrosserie.</div>
+            <div className="bg-gradient-to-br from-emerald-900/30 to-zinc-900 p-5 rounded-2xl border border-emerald-500/40 relative overflow-hidden shadow-[0_0_25px_rgba(16,185,129,0.1)] transition-transform hover:scale-[1.02]">
+               <div className="absolute top-0 right-0 bg-emerald-500 text-[8px] text-black px-3 py-1.5 font-bold tracking-widest rounded-bl-lg">PREMIUM</div>
+               <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500/0 via-emerald-500/5 to-emerald-500/0 animate-[shimmer_3s_infinite] pointer-events-none"></div>
+               <div className="text-2xl font-black text-emerald-400 mb-2 relative z-10">129€</div>
+               <div className="text-[10px] leading-relaxed text-emerald-100/70 mb-2 relative z-10">Nettoyage Classique + Shampoing complet des sièges, pressing moquettes en profondeur, cire hydro-déperlante longue durée.</div>
             </div>
          </div>
       </div>
