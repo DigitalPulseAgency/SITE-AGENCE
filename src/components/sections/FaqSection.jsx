@@ -5,7 +5,10 @@ import { ChevronDown } from 'lucide-react';
 export function FaqSection() {
   const faqs = [
     { q: "Suis-je engagé sur la durée ?", a: "Non. Il n'y a absolument aucun engagement. Vous êtes libre d'arrêter quand vous le souhaitez." },
-    { q: "Est-ce adapté à mon activité ?", a: "Oui, tous nos systèmes (délégation de standard, prise de rdv, facturation) sont créés sur-mesure pour s'intégrer parfaitement à votre secteur." },
+    { 
+      q: "Est-ce adapté à mon activité ?", 
+      a: "Oui, tous nos systèmes (délégation de standard, prise de rendez-vous, facturation) sont créés sur-mesure pour s'intégrer parfaitement à votre secteur." 
+    },
     { 
       q: "Au bout de combien de temps verrai-je les résultats ?", 
       a: "Les résultats se ressentent très rapidement.\n\nVous gagnez du temps, vous réduisez votre charge mentale et vous arrêtez de gérer des tâches répétitives.\n\nMoins d'appels manqués, plus de relances à faire manuellement, et toute votre activité devient plus claire et organisée.\n\nTout est centralisé, vous savez exactement où vous en êtes, sans vous disperser." 

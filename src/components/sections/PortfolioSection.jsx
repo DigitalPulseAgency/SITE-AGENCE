@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion';
 import { 
-  Car, Building2, Wind, Droplets, Sparkles, Hammer, 
-  CheckCircle, Star, Phone, ArrowRight, ShieldCheck 
+  Car, Building2, Wind, Sparkles, Hammer, 
+  CheckCircle, Star, Phone, ArrowRight, ShieldCheck,
+  MapPin, Clock, Mail, ChevronRight, Droplet
 } from 'lucide-react';
 
 export function PortfolioSection() {
@@ -49,7 +50,7 @@ export function PortfolioSection() {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4">Aperçus des conceptions</h2>
-          <p className="text-gray-400">Passez la souris sur une carte pour explorer le site complet.</p>
+          <p className="text-gray-400">Survolez un site pour le faire défiler automatiquement et découvrir son contenu complet.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -60,10 +61,10 @@ export function PortfolioSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="group relative rounded-2xl overflow-hidden border border-white/10 hover:border-primary/50 transition-colors bg-[#0a0a0a] shadow-2xl"
+              className="group relative rounded-2xl overflow-hidden border border-white/10 hover:border-primary/50 transition-colors bg-[#0a0a0a] shadow-2xl flex flex-col h-[450px]"
             >
               {/* Fake browser header */}
-              <div className="bg-zinc-900/90 backdrop-blur-md border-b border-white/10 px-4 py-3 flex items-center gap-2 z-30 relative">
+              <div className="bg-zinc-900/90 backdrop-blur-md border-b border-white/10 px-4 py-3 flex items-center gap-2 z-30 shrink-0">
                 <div className="flex gap-1.5 shrink-0">
                   <div className="w-2.5 h-2.5 rounded-full bg-red-500/80"></div>
                   <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/80"></div>
@@ -76,20 +77,19 @@ export function PortfolioSection() {
               </div>
               
               {/* Image / Content with scroll effect */}
-              <div className="relative h-[380px] overflow-hidden bg-black cursor-ns-resize touch-pan-y">
+              {/* on Mobile: scrollable vertically. on Desktop: hidden overflow, animates on hover */}
+              <div className="relative flex-1 overflow-y-auto md:overflow-hidden bg-black touch-pan-y scrollbar-hide">
                 
                 {/* The Scrolling DOM Wrapper */}
-                {/* Hauteur ajustée dynamiquement (translate-y) au hover */}
-                {/* La propriété cubic-bezier permet un easing visqueux très premium */}
                 <div 
-                  className="absolute top-0 left-0 w-full transition-transform duration-[6000ms] ease-in-out group-hover:-translate-y-[calc(100%-380px)]"
+                  className="w-full md:transition-transform md:duration-[8000ms] md:ease-linear md:group-hover:-translate-y-[calc(100%-407px)]"
                 >
                   {site.content}
                 </div>
                 
-                {/* Content Overlay */}
-                <div className="absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black via-black/80 to-transparent z-20 pointer-events-none group-hover:opacity-0 transition-opacity duration-300">
-                  <span className="text-accent text-xs font-bold tracking-wider uppercase mb-1 block">
+                {/* Content Overlay (disappears on hover) */}
+                <div className="hidden md:block absolute bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-black via-black/80 to-transparent z-20 pointer-events-none group-hover:opacity-0 transition-opacity duration-300">
+                  <span className="text-white/60 text-[10px] font-bold tracking-wider uppercase mb-1 block">
                     {site.niche}
                   </span>
                   <h3 className="text-xl font-bold text-white">{site.name}</h3>
@@ -104,52 +104,96 @@ export function PortfolioSection() {
 }
 
 // -------------------------------------------------------------------------------- //
+// REUSABLE MINI COMPONENTS FOR SITES
+// -------------------------------------------------------------------------------- //
+
+const FakeStars = () => (
+  <div className="flex gap-0.5 text-amber-500 mb-2">
+    <Star className="w-3 h-3 fill-current" />
+    <Star className="w-3 h-3 fill-current" />
+    <Star className="w-3 h-3 fill-current" />
+    <Star className="w-3 h-3 fill-current" />
+    <Star className="w-3 h-3 fill-current" />
+  </div>
+);
+
+// -------------------------------------------------------------------------------- //
 // MINI SITES COMPONENTS
 // -------------------------------------------------------------------------------- //
 
 function LocationCarsMiniSite() {
   return (
-    <div className="flex flex-col bg-zinc-950 text-white w-full h-[900px]">
+    <div className="flex flex-col bg-zinc-950 text-white w-full">
       {/* Hero */}
       <div className="relative h-[250px] bg-black overflow-hidden flex flex-col justify-center px-6">
-        <img src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=600&q=80" className="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-luminosity" />
+        <img src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=600&q=80" className="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-luminosity" alt="Luxe car" />
         <div className="relative z-10 w-full">
           <Car className="w-6 h-6 text-amber-500 mb-2" />
           <h1 className="text-xl font-bold mb-1">Prestige Fleet</h1>
           <p className="text-[10px] text-gray-300 mb-4 max-w-[80%]">Louez l'excellence. Flotte premium disponible 24/7 avec chauffeur privé en option.</p>
-          <div className="w-24 py-1.5 bg-amber-500 text-black text-[9px] font-bold text-center rounded">
+          <div className="w-24 py-1.5 bg-amber-500 text-black text-[9px] font-bold text-center rounded cursor-pointer">
             RÉSERVER
           </div>
         </div>
       </div>
-      {/* Booking Form (Fake) */}
-      <div className="px-4 -mt-6 relative z-20 mb-6">
-        <div className="bg-zinc-900 rounded-lg p-3 shadow-xl border border-white/5 flex gap-2">
-           <div className="flex-1 bg-black rounded p-2 border border-white/10"><div className="w-8 h-2 bg-zinc-700 rounded mb-1"></div><div className="w-16 h-2 bg-zinc-500 rounded"></div></div>
-           <div className="flex-1 bg-black rounded p-2 border border-white/10"><div className="w-8 h-2 bg-zinc-700 rounded mb-1"></div><div className="w-16 h-2 bg-zinc-500 rounded"></div></div>
+      
+      {/* Services */}
+      <div className="py-6 px-4 bg-zinc-900 border-b border-white/5">
+        <div className="text-center mb-4">
+           <h2 className="text-sm font-bold text-amber-500">Nos Services Premium</h2>
+           <p className="text-[9px] text-gray-400">Le luxe à votre portée</p>
+        </div>
+        <div className="grid grid-cols-2 gap-3">
+           <div className="bg-black p-3 rounded border border-white/10">
+              <Clock className="w-4 h-4 text-white mb-2" />
+              <div className="text-[10px] font-bold mb-1">Location 24h</div>
+              <div className="text-[8px] text-gray-400">Disponibilité immédiate de votre véhicule.</div>
+           </div>
+           <div className="bg-black p-3 rounded border border-white/10">
+              <Building2 className="w-4 h-4 text-white mb-2" />
+              <div className="text-[10px] font-bold mb-1">Chauffeur Privé</div>
+              <div className="text-[8px] text-gray-400">Professionnels bilingues certifiés.</div>
+           </div>
         </div>
       </div>
-      {/* Fleet */}
-      <div className="px-4 pb-6">
-        <h2 className="text-sm font-bold mb-3">Notre Flotte</h2>
-        <div className="space-y-3">
-          {[1,2,3].map(i => (
-             <div key={i} className="flex gap-3 items-center bg-zinc-900 p-2 rounded border border-white/5">
-                <div className="w-16 h-12 bg-zinc-800 rounded overflow-hidden">
-                  <img src="https://images.unsplash.com/photo-1617531653332-bd46c24f2068?auto=format&fit=crop&w=150&q=80" className="w-full h-full object-cover opacity-80" />
-                </div>
-                <div className="flex-1">
-                  <div className="w-20 h-3 bg-white/80 rounded mb-1"></div>
-                  <div className="w-12 h-2 bg-amber-500/80 rounded"></div>
-                </div>
-             </div>
-          ))}
-        </div>
+
+      {/* Avantages */}
+      <div className="py-6 px-4 bg-black">
+        <h2 className="text-sm font-bold mb-3">Pourquoi nous choisir ?</h2>
+        <ul className="space-y-3">
+           <li className="flex gap-2 items-start"><CheckCircle className="w-3 h-3 text-amber-500 shrink-0 mt-0.5" /><span className="text-[10px] text-gray-300">Flotte renouvelée tous les 12 mois pour un confort absolu.</span></li>
+           <li className="flex gap-2 items-start"><CheckCircle className="w-3 h-3 text-amber-500 shrink-0 mt-0.5" /><span className="text-[10px] text-gray-300">Discrétion et professionnalisme garantis.</span></li>
+           <li className="flex gap-2 items-start"><CheckCircle className="w-3 h-3 text-amber-500 shrink-0 mt-0.5" /><span className="text-[10px] text-gray-300">Assurance multirisques premium incluse.</span></li>
+        </ul>
       </div>
-      <div className="mt-auto h-[100px] bg-black flex grid grid-cols-3 gap-2 px-4 py-6 border-t border-white/10">
-         <div className="h-2 bg-zinc-800 rounded"></div>
-         <div className="h-2 bg-zinc-800 rounded"></div>
-         <div className="h-2 bg-zinc-800 rounded"></div>
+
+      {/* Témoignages */}
+      <div className="py-6 px-4 bg-gradient-to-b from-zinc-900 to-black">
+         <div className="text-center mb-4">
+            <h2 className="text-sm font-bold">Ils nous font confiance</h2>
+         </div>
+         <div className="bg-zinc-800/50 p-4 rounded-xl border border-white/5 relative">
+            <FakeStars />
+            <p className="text-[9px] text-gray-300 italic mb-2">"Une expérience incroyable. Le service client est irréprochable et les véhicules sont dans un état clinique. Mon week-end a été parfait."</p>
+            <div className="text-[10px] font-bold text-amber-500">- Marc Dubois, Entrepreneur</div>
+         </div>
+      </div>
+
+      {/* CTA */}
+      <div className="py-8 px-4 bg-amber-500 text-black text-center">
+         <h2 className="text-sm font-black uppercase tracking-wide mb-2">Prêt à vivre l'expérience ?</h2>
+         <p className="text-[9px] mb-4 font-medium">Réservez votre véhicule d'exception dès maintenant.</p>
+         <button className="bg-black text-white text-[10px] px-6 py-2 rounded font-bold uppercase hover:bg-zinc-900">Prendre un rendez-vous</button>
+      </div>
+
+      {/* Footer */}
+      <div className="pt-6 pb-4 px-4 bg-zinc-950 text-[8px] text-gray-500 border-t border-white/10 text-center">
+         <div className="flex justify-center gap-4 mb-4">
+            <span>Accueil</span>
+            <span>Flotte</span>
+            <span>Contact</span>
+         </div>
+         <div>© {new Date().getFullYear()} Prestige Fleet. Tous droits réservés.</div>
       </div>
     </div>
   )
@@ -157,45 +201,90 @@ function LocationCarsMiniSite() {
 
 function ConciergerieMiniSite() {
   return (
-    <div className="flex flex-col bg-[#F9F9F9] text-zinc-900 w-full h-[900px]">
-      <div className="px-4 py-3 flex justify-between items-center border-b border-zinc-200">
+    <div className="flex flex-col bg-[#FAFAFA] text-zinc-900 w-full">
+      <div className="px-4 py-3 flex justify-between items-center border-b border-zinc-200 bg-white">
          <div className="text-xs font-bold tracking-widest uppercase">Elite</div>
-         <div className="w-4 h-4 bg-zinc-200 rounded-full"></div>
+         <div className="w-16 h-2 bg-zinc-200 rounded"></div>
       </div>
+      
       {/* Hero */}
       <div className="relative h-[220px] bg-stone-200 flex flex-col justify-end p-6 overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=600&q=80" className="absolute inset-0 w-full h-full object-cover" />
+        <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=600&q=80" className="absolute inset-0 w-full h-full object-cover" alt="Hotel room" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
         <div className="relative z-10 text-white">
           <h1 className="text-2xl font-serif mb-1">Service 5 Étoiles</h1>
-          <p className="text-[10px] text-zinc-300 font-light max-w-[90%]">Votre bien immobilier géré avec le plus grand soin par des professionnels de l'hôtellerie.</p>
+          <p className="text-[10px] text-zinc-300 font-light max-w-[90%] mb-3">Votre bien immobilier géré avec le plus grand soin par des professionnels de l'hôtellerie.</p>
         </div>
       </div>
-      {/* Services grid */}
-      <div className="px-4 py-6">
-        <div className="text-center mb-4">
-          <p className="text-[9px] uppercase tracking-widest text-stone-500 mb-1">Nos prestations</p>
-          <h2 className="text-sm font-medium">Gestion Complète</h2>
+
+      {/* Services */}
+      <div className="px-4 py-8 bg-white">
+        <div className="text-center mb-6">
+          <p className="text-[8px] uppercase tracking-widest text-stone-500 mb-1">Nos prestations</p>
+          <h2 className="text-sm font-serif">Gestion Complète</h2>
         </div>
         <div className="grid grid-cols-2 gap-3">
-           {['Check In/Out', 'Ménage Pro', 'Maintenance', 'Prix Dynamique'].map((srv, i) => (
-             <div key={i} className="bg-white p-3 border border-zinc-100 flex flex-col items-center justify-center text-center shadow-sm">
-               <CheckCircle className="w-5 h-5 text-stone-400 mb-2" />
-               <div className="text-[9px] font-medium">{srv}</div>
+           {[
+             { title: 'Check In/Out', desc: 'Accueil personnalisé' }, 
+             { title: 'Ménage Pro', desc: 'Nettoyage hôtelier' }, 
+             { title: 'Maintenance', desc: 'Intervention rapide 24/7' }, 
+             { title: 'Prix Dynamique', desc: 'Optimisation des revenus' }
+           ].map((srv, i) => (
+             <div key={i} className="bg-stone-50 p-4 border border-stone-100 flex flex-col items-center text-center shadow-sm rounded-lg hover:shadow-md transition-shadow">
+               <CheckCircle className="w-5 h-5 text-stone-600 mb-2" />
+               <div className="text-[10px] font-bold mb-1">{srv.title}</div>
+               <div className="text-[8px] text-stone-500">{srv.desc}</div>
              </div>
            ))}
         </div>
       </div>
-      {/* Banner */}
-      <div className="bg-stone-900 text-white p-6 text-center mx-4 mb-6 relative overflow-hidden">
-        <div className="text-[11px] mb-2 z-10 relative">Estimez vos revenus en 2 clics</div>
-        <div className="inline-block px-4 py-1.5 bg-white text-stone-900 text-[9px] font-bold">CALCULER</div>
+
+      {/* Avantages */}
+      <div className="py-8 px-5 bg-stone-900 text-stone-100">
+         <h2 className="text-sm font-serif mb-4">L'Avantage Elite</h2>
+         <div className="space-y-4">
+            <div className="flex gap-3">
+               <div className="w-8 h-8 rounded-full bg-stone-800 flex items-center justify-center shrink-0">1</div>
+               <div>
+                  <div className="text-[11px] font-bold mb-1 text-white">Revenus maximisés</div>
+                  <div className="text-[9px] text-stone-400">Jusqu'à +30% de chiffre d'affaires grâce à notre tarification algorithmique.</div>
+               </div>
+            </div>
+            <div className="flex gap-3">
+               <div className="w-8 h-8 rounded-full bg-stone-800 flex items-center justify-center shrink-0">2</div>
+               <div>
+                  <div className="text-[11px] font-bold mb-1 text-white">Tranquillité d'esprit</div>
+                  <div className="text-[9px] text-stone-400">Nous nous occupons de chaque détail, de la communication aux dépannages.</div>
+               </div>
+            </div>
+         </div>
       </div>
+
+      {/* Testimonials */}
+      <div className="py-8 px-4 bg-stone-50">
+         <div className="bg-white p-5 rounded-xl shadow-sm border border-stone-100">
+            <FakeStars />
+            <p className="text-[10px] text-stone-600 leading-relaxed mb-3">"Depuis que j'ai confié mon appartement à Elite, je ne me soucie plus de rien. Mes notes sur Airbnb sont passées à 4.9 et mes revenus ont explosé."</p>
+            <div className="flex items-center gap-2">
+               <div className="w-6 h-6 rounded-full bg-stone-200 shrink-0"></div>
+               <div>
+                  <div className="text-[9px] font-bold">Claire V.</div>
+                  <div className="text-[8px] text-stone-400">Propriétaire à Paris</div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      {/* CTA */}
+      <div className="bg-stone-900 text-white p-8 text-center">
+        <h2 className="text-sm font-serif mb-2">Prêt à déléguer ?</h2>
+        <div className="text-[9px] mb-4 text-stone-300">Estimez vos revenus potentiels en quelques clics.</div>
+        <button className="px-6 py-2.5 bg-white text-stone-900 text-[10px] font-bold tracking-widest hover:bg-stone-200 transition-colors uppercase">Prendre un rendez-vous</button>
+      </div>
+
       {/* Footer */}
-      <div className="mt-auto h-[120px] bg-stone-100 flex flex-col px-6 py-6 border-t border-stone-200 gap-2">
-         <div className="w-16 h-3 bg-stone-300 rounded mb-2"></div>
-         <div className="w-full h-1.5 bg-stone-200 rounded"></div>
-         <div className="w-full h-1.5 bg-stone-200 rounded"></div>
+      <div className="bg-white border-t border-stone-200 text-center py-6 text-[8px] text-stone-400">
+         <p>© {new Date().getFullYear()} Elite Conciergerie.</p>
       </div>
     </div>
   )
@@ -203,92 +292,117 @@ function ConciergerieMiniSite() {
 
 function ClimatisationMiniSite() {
   return (
-    <div className="flex flex-col bg-slate-50 text-slate-800 w-full h-[900px]">
+    <div className="flex flex-col bg-slate-50 text-slate-800 w-full">
       <div className="bg-blue-600 text-white px-4 py-2 flex justify-between items-center h-8">
         <div className="text-[11px] font-bold flex items-center gap-1"><Wind className="w-3 h-3" /> ClimPro</div>
         <div className="bg-white text-blue-600 px-2 py-0.5 text-[8px] font-bold rounded-full flex items-center gap-1">
           <Phone className="w-2 h-2" /> 01 23 45 67 89
         </div>
       </div>
-      <div className="relative h-[200px]">
-        <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=600&q=80" className="w-full h-full object-cover brightness-75" />
-        <div className="absolute inset-0 bg-blue-900/40"></div>
+      
+      {/* Hero */}
+      <div className="relative h-[220px]">
+        <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=600&q=80" className="w-full h-full object-cover brightness-75" alt="HVAC System" />
+        <div className="absolute inset-0 bg-blue-900/60"></div>
         <div className="absolute inset-0 flex flex-col justify-center p-5 text-white">
-          <div className="bg-blue-500 text-[8px] uppercase px-1.5 py-0.5 rounded w-max mb-2 font-bold tracking-wider">Intervention 24/7</div>
-          <h1 className="text-xl font-black mb-1">Votre Confort Thermique.</h1>
-          <p className="text-[9px] w-[85%]">Installation, entretien et dépannage de pompes à chaleur de dernière génération.</p>
+          <div className="bg-blue-500 text-[8px] uppercase px-1.5 py-0.5 rounded w-max mb-2 font-bold tracking-wider shadow-lg">Intervention 24/7</div>
+          <h1 className="text-2xl font-black mb-2 leading-tight">Votre Confort Thermique.</h1>
+          <p className="text-[10px] w-[90%] text-blue-100">Installation, entretien et dépannage de pompes à chaleur et climatisations.</p>
         </div>
       </div>
-      <div className="flex justify-center -mt-4 relative z-10 gap-2 px-4">
-        <div className="bg-white p-2 rounded shadow border-b-2 border-blue-600 flex-1 text-center text-[9px] font-bold">Dépannage</div>
-        <div className="bg-white p-2 rounded shadow border-b-2 border-blue-600 flex-1 text-center text-[9px] font-bold">Installation</div>
+      
+      {/* Tabs */}
+      <div className="flex justify-center -mt-4 relative z-10 px-4 gap-2">
+        <div className="bg-white p-2.5 rounded shadow-lg border-b-2 border-blue-600 flex-1 text-center text-[10px] font-bold text-blue-900">Dépannage</div>
+        <div className="bg-white p-2.5 rounded shadow-lg flex-1 text-center text-[10px] font-bold text-slate-500">Installation</div>
       </div>
-      <div className="p-5 mt-4">
-        <div className="w-20 h-4 bg-slate-200 rounded mb-4"></div>
-        <div className="space-y-4">
-          <div className="flex gap-3">
-             <div className="w-16 h-16 bg-blue-100 rounded flex items-center justify-center text-blue-500">
-               <Star className="w-6 h-6" />
-             </div>
-             <div className="flex-1">
-                <div className="w-full h-2 bg-slate-200 rounded mb-1.5"></div>
-                <div className="w-full h-2 bg-slate-200 rounded mb-1.5"></div>
-                <div className="w-2/3 h-2 bg-slate-200 rounded"></div>
-             </div>
-          </div>
-          <div className="flex gap-3">
-             <div className="w-16 h-16 bg-blue-100 rounded flex items-center justify-center text-blue-500">
-               <BuildIcon />
-             </div>
-             <div className="flex-1">
-                <div className="w-full h-2 bg-slate-200 rounded mb-1.5"></div>
-                <div className="w-full h-2 bg-slate-200 rounded mb-1.5"></div>
-                <div className="w-2/3 h-2 bg-slate-200 rounded"></div>
-             </div>
-          </div>
+      
+      {/* Services */}
+      <div className="p-5 mt-4 text-center">
+        <h2 className="text-sm font-bold text-blue-900 mb-4">Nos Spécialités</h2>
+        <div className="grid grid-cols-2 gap-3 text-left">
+           <div className="bg-white p-3 rounded-lg shadow-sm border border-slate-100">
+              <Sparkles className="w-4 h-4 text-blue-500 mb-2" />
+              <h3 className="text-[10px] font-bold mb-1">Entretien Annuel</h3>
+              <p className="text-[8px] text-slate-500">Assurez la longévité de votre appareil.</p>
+           </div>
+           <div className="bg-white p-3 rounded-lg shadow-sm border border-slate-100">
+              <ShieldCheck className="w-4 h-4 text-blue-500 mb-2" />
+              <h3 className="text-[10px] font-bold mb-1">Dépannage Urgent</h3>
+              <p className="text-[8px] text-slate-500">Intervention dans l'heure garantie.</p>
+           </div>
         </div>
       </div>
-      <div className="mt-auto h-[140px] bg-slate-900 text-white p-5 flex flex-col items-center justify-center text-center">
-         <h3 className="text-sm font-bold mb-2">Besoin d'un devis ?</h3>
-         <div className="w-full max-w-[200px] h-8 bg-blue-600 flex items-center justify-center text-[10px] font-bold rounded">CONTACTEZ-NOUS</div>
+
+      {/* Avantages */}
+      <div className="bg-white py-6 px-5 border-y border-slate-200">
+         <h2 className="text-sm font-bold text-blue-900 mb-3">L'engagement ClimPro</h2>
+         <ul className="space-y-2">
+            <li className="flex items-center gap-2"><CheckCircle className="w-3 h-3 text-green-500" /><span className="text-[10px] font-medium">Devis gratuit et transparent</span></li>
+            <li className="flex items-center gap-2"><CheckCircle className="w-3 h-3 text-green-500" /><span className="text-[10px] font-medium">Artisans certifiés RGE QualiPAC</span></li>
+            <li className="flex items-center gap-2"><CheckCircle className="w-3 h-3 text-green-500" /><span className="text-[10px] font-medium">SAV réactif 7j/7</span></li>
+         </ul>
+      </div>
+
+      {/* Témoignages */}
+      <div className="p-5 bg-slate-50">
+         <div className="bg-blue-900 text-white p-4 rounded-xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 opacity-10">
+               <Wind className="w-24 h-24 transform translate-x-4 -translate-y-4" />
+            </div>
+            <FakeStars />
+            <p className="text-[10px] relative z-10 italic">"Très professionnel. Ils sont intervenus un dimanche après-midi pour réparer ma clim en pleine canicule. Je recommande les yeux fermés."</p>
+            <div className="mt-2 text-[9px] font-bold text-blue-300">- Famille Martin, Lyon</div>
+         </div>
+      </div>
+
+      {/* CTA */}
+      <div className="bg-slate-900 text-white p-6 text-center mt-2">
+         <h3 className="text-sm font-bold mb-2">Besoin d'un expert ?</h3>
+         <button className="w-full h-10 bg-blue-600 flex items-center justify-center text-[10px] font-bold rounded uppercase hover:bg-blue-500 transition-colors">Prendre un rendez-vous</button>
+      </div>
+
+      <div className="bg-slate-950 text-slate-500 text-[8px] py-4 text-center">
+         © ClimPro {new Date().getFullYear()}
       </div>
     </div>
   )
 }
 
-function BuildIcon() { return <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>; }
-
 function PiscinisteMiniSite() {
   return (
-    <div className="flex flex-col bg-white text-cyan-950 w-full h-[900px]">
-      {/* Header compact */}
-      <div className="h-10 bg-white/80 backdrop-blur absolute top-0 w-full flex items-center justify-between px-4 z-50 border-b border-cyan-100">
-         <div className="text-cyan-600 font-bold text-xs">Azur<span className="font-light">Piscines</span></div>
-         <div className="w-5 h-0.5 bg-cyan-900"></div>
+    <div className="flex flex-col bg-white text-cyan-950 w-full">
+      {/* Header */}
+      <div className="h-12 bg-white/90 backdrop-blur absolute top-0 w-full flex items-center justify-between px-5 z-50 border-b border-cyan-100 shadow-sm">
+         <div className="text-cyan-600 font-bold text-sm">Azur<span className="font-light">Piscines</span></div>
+         <div className="bg-cyan-50 text-cyan-700 px-3 py-1 text-[9px] font-bold rounded-full border border-cyan-200 uppercase">Projet</div>
       </div>
-      <div className="relative h-[280px] pt-10">
-        <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=600&q=80" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-cyan-950 via-cyan-950/20 to-transparent"></div>
+      
+      {/* Hero */}
+      <div className="relative h-[280px] pt-12">
+        <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=600&q=80" className="w-full h-full object-cover" alt="Pool construction" />
+        <div className="absolute inset-0 bg-gradient-to-t from-cyan-950/90 via-cyan-950/20 to-transparent"></div>
         <div className="absolute bottom-6 left-5 text-white pr-5">
-           <h1 className="text-2xl font-light leading-tight mb-2">Concevez le <br/><span className="font-bold">bassin de vos rêves</span></h1>
-           <div className="w-8 h-1 bg-cyan-400 mb-3"></div>
-           <p className="text-[9px] text-cyan-100">Expert en construction et rénovation haut de gamme.</p>
+           <h1 className="text-2xl font-light leading-tight mb-2">Donnez vie au <br/><span className="font-bold">bassin de vos rêves</span></h1>
+           <div className="w-10 h-1 bg-cyan-400 mb-3 rounded-full"></div>
+           <p className="text-[10px] text-cyan-50">Design, construction et rénovation haut de gamme.</p>
         </div>
       </div>
       
-      <div className="px-5 py-6 bg-cyan-50">
-         <h2 className="text-center text-xs font-bold text-cyan-800 uppercase tracking-widest mb-4">Notre Processus</h2>
-         <div className="space-y-3 relative">
-            <div className="absolute left-[11px] top-4 bottom-4 w-[2px] bg-cyan-200"></div>
+      {/* Services / Processus */}
+      <div className="px-5 py-8 bg-cyan-50">
+         <h2 className="text-center text-xs font-bold text-cyan-800 uppercase tracking-widest mb-6">Notre Méthode</h2>
+         <div className="space-y-4 relative">
+            <div className="absolute left-[13px] top-4 bottom-4 w-[2px] bg-cyan-200"></div>
             {[
-              { title: "Étude 3D", desc: "Modélisation de votre projet" },
-              { title: "Terrassement", desc: "Préparation du terrain" },
-              { title: "Mise en eau", desc: "Finitions et domotique" }
+              { title: "Étude 3D & Devis", desc: "Modélisation parfaite de votre projet" },
+              { title: "Terrassement", desc: "Préparation soignée du terrain" },
+              { title: "Livraison", desc: "Mise en eau et formation domotique" }
             ].map((step, i) => (
-              <div key={i} className="flex gap-4 relative z-10">
-                <div className="w-6 h-6 rounded-full bg-cyan-500 text-white flex items-center justify-center text-[10px] font-bold shrink-0">{i+1}</div>
+              <div key={i} className="flex gap-4 relative z-10 bg-white p-3 rounded-lg shadow-sm border border-cyan-100">
+                <div className="w-7 h-7 rounded-full bg-cyan-500 text-white flex items-center justify-center text-[12px] font-bold shrink-0 shadow-md">{i+1}</div>
                 <div className="pt-0.5">
-                  <div className="text-[11px] font-bold">{step.title}</div>
+                  <div className="text-[11px] font-bold text-cyan-900">{step.title}</div>
                   <div className="text-[9px] text-cyan-700">{step.desc}</div>
                 </div>
               </div>
@@ -296,18 +410,35 @@ function PiscinisteMiniSite() {
          </div>
       </div>
 
-      <div className="p-5">
-         <div className="grid grid-cols-2 gap-2">
-            <div className="bg-cyan-100 aspect-square rounded overflow-hidden relative">
-               <img src="https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=300&q=80" className="w-full h-full object-cover opacity-80" />
-            </div>
-            <div className="bg-cyan-100 aspect-square rounded relative overflow-hidden">
-               <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?auto=format&fit=crop&w=300&q=80" className="w-full h-full object-cover opacity-50 hue-rotate-180" />
-            </div>
-         </div>
-         <div className="mt-4 bg-cyan-900 border border-cyan-800 rounded p-4 text-center">
-            <div className="text-[12px] text-white font-bold mb-1">Votre projet commence ici</div>
-            <div className="w-full bg-cyan-400 text-cyan-950 text-[9px] py-2 rounded font-bold uppercase tracking-wide">Prendre RDV</div>
+      {/* Avantages */}
+      <div className="p-5 bg-white">
+        <h2 className="text-sm font-bold text-cyan-900 mb-4">L'excellence Azur</h2>
+        <div className="grid grid-cols-2 gap-2 text-center">
+           <div className="bg-cyan-50 p-3 rounded border border-cyan-100">
+              <Droplet className="w-5 h-5 text-cyan-500 mx-auto mb-1" />
+              <div className="text-[10px] font-bold">Eau Cristalline</div>
+           </div>
+           <div className="bg-cyan-50 p-3 rounded border border-cyan-100">
+              <ShieldCheck className="w-5 h-5 text-cyan-500 mx-auto mb-1" />
+              <div className="text-[10px] font-bold">Garantie 10 ans</div>
+           </div>
+        </div>
+      </div>
+
+      {/* Testimonials */}
+      <div className="p-5 bg-cyan-950 text-white text-center">
+         <FakeStars />
+         <h3 className="text-[11px] font-bold mb-2">"Un travail d'orfèvre"</h3>
+         <p className="text-[9px] text-cyan-100 italic">"L'équipe a métamorphosé notre jardin. Du design à la réalisation, tout a été parfait. La piscine connectée est un vrai plus au quotidien."</p>
+         <div className="text-[8px] mt-2 opacity-60">S. Dubois, Propriétaire</div>
+      </div>
+
+      {/* CTA */}
+      <div className="p-6 bg-cyan-50 text-center">
+         <div className="bg-cyan-900 border-2 border-cyan-400 rounded-xl p-5 shadow-xl">
+            <div className="text-[14px] text-white font-bold mb-1">Ouvrez le dialogue</div>
+            <div className="text-[9px] text-cyan-200 mb-4">Étude de faisabilité offerte</div>
+            <button className="w-full bg-cyan-400 text-cyan-950 text-[10px] py-2.5 rounded font-bold uppercase tracking-wide hover:bg-cyan-300">Prendre un rendez-vous</button>
          </div>
       </div>
     </div>
@@ -316,49 +447,83 @@ function PiscinisteMiniSite() {
 
 function NettoyageMiniSite() {
   return (
-    <div className="flex flex-col bg-zinc-900 text-zinc-100 w-full h-[900px]">
+    <div className="flex flex-col bg-zinc-950 text-zinc-100 w-full">
+      {/* Hero */}
       <div className="relative h-[250px] overflow-hidden">
-        <img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&w=600&q=80" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-r from-emerald-900/90 to-black/60"></div>
+        <img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&w=600&q=80" className="w-full h-full object-cover" alt="Car washing" />
+        <div className="absolute inset-0 bg-gradient-to-r from-emerald-950/90 to-black/60"></div>
         <div className="absolute inset-0 p-6 flex flex-col justify-center">
-           <div className="w-10 h-10 bg-emerald-500 rounded-lg flex items-center justify-center mb-4">
-              <Sparkles className="w-6 h-6 text-white" />
+           <div className="w-10 h-10 bg-emerald-500 rounded-lg flex items-center justify-center mb-4 shadow-[0_0_15px_rgba(16,185,129,0.5)]">
+              <Sparkles className="w-6 h-6 text-black" />
            </div>
-           <h1 className="text-3xl font-extrabold italic tracking-tight mb-2">CLEAN<span className="text-emerald-500">AUTO</span></h1>
-           <p className="text-[10px] text-emerald-100">Detailing & Lavage premium sur mesure.</p>
+           <h1 className="text-3xl font-extrabold italic tracking-tight mb-1 text-white">CLEAN<span className="text-emerald-500">AUTO</span></h1>
+           <p className="text-[10px] text-emerald-100 font-medium">Detailing & Lavage premium sur mesure.</p>
         </div>
       </div>
-      <div className="bg-emerald-500 text-zinc-900 text-[10px] font-bold uppercase tracking-widest text-center py-2">
-         Réservation Rapide 24/7
+      
+      <div className="bg-emerald-500 text-black text-[9px] font-bold uppercase tracking-widest text-center py-2.5">
+         ★ Réservation Rapide ★
       </div>
       
-      <div className="p-6">
-         <h2 className="text-lg font-bold mb-4">Forfaits</h2>
+      {/* Services / Forfaits */}
+      <div className="p-6 bg-zinc-900">
+         <div className="flex justify-between items-end mb-4">
+            <h2 className="text-sm font-bold text-white">Nos Forfaits</h2>
+            <span className="text-[9px] text-emerald-500 cursor-pointer">Voir tout</span>
+         </div>
          <div className="space-y-4">
-            <div className="bg-zinc-800 p-4 rounded-xl border border-zinc-700 relative overflow-hidden">
-               <div className="absolute top-0 right-0 bg-zinc-700 text-[8px] px-2 py-1 font-bold">INTÉRIEUR</div>
+            <div className="bg-zinc-800 p-4 rounded-xl border border-zinc-700 relative overflow-hidden transition-transform hover:scale-[1.02]">
+               <div className="absolute top-0 right-0 bg-zinc-700 text-[8px] px-2 py-1 font-bold text-white">CLASSIQUE</div>
                <div className="text-xl font-bold text-white mb-2">49€</div>
-               <div className="w-full h-1 bg-zinc-700 mb-1 rounded"></div>
-               <div className="w-4/5 h-1 bg-zinc-700 rounded"></div>
+               <div className="text-[9px] text-gray-400 mb-2">Aspiration, plastiques, vitres, et lavage extérieur à la main.</div>
             </div>
             
-            <div className="bg-gradient-to-br from-emerald-900 to-zinc-900 p-4 rounded-xl border border-emerald-500/50 relative overflow-hidden shadow-[0_0_15px_rgba(16,185,129,0.2)]">
+            <div className="bg-gradient-to-br from-emerald-900/40 to-zinc-800 p-4 rounded-xl border border-emerald-500/50 relative overflow-hidden shadow-[0_0_20px_rgba(16,185,129,0.15)] transition-transform hover:scale-[1.02]">
                <div className="absolute top-0 right-0 bg-emerald-500 text-[8px] text-black px-2 py-1 font-bold">PREMIUM</div>
                <div className="text-xl font-bold text-emerald-400 mb-2">129€</div>
-               <div className="w-full h-1 bg-emerald-800 mb-1 rounded"></div>
-               <div className="w-full h-1 bg-emerald-800 mb-1 rounded"></div>
-               <div className="w-3/5 h-1 bg-emerald-800 rounded"></div>
+               <div className="text-[9px] text-emerald-100/70 mb-2">Shampoing complet des sièges, pressing moquettes, cire de protection carrosserie.</div>
             </div>
          </div>
       </div>
-      
-      <div className="mt-8 bg-black p-6">
-         <div className="h-5 w-32 bg-zinc-800 mb-4 rounded"></div>
-         <div className="space-y-2">
-            <div className="h-8 bg-zinc-900 rounded border border-zinc-800"></div>
-            <div className="h-8 bg-zinc-900 rounded border border-zinc-800"></div>
-            <div className="h-10 bg-emerald-600 rounded"></div>
+
+      {/* Avantages */}
+      <div className="py-6 px-6 bg-black border-y border-white/5">
+        <h2 className="text-sm font-bold mb-4 text-emerald-500">La Qualité CleanAuto</h2>
+        <div className="grid grid-cols-2 gap-4">
+           <div className="text-center">
+              <div className="w-10 h-10 mx-auto bg-zinc-900 rounded-full flex items-center justify-center border border-emerald-500/30 mb-2">
+                 <ShieldCheck className="w-5 h-5 text-emerald-500" />
+              </div>
+              <div className="text-[10px] font-bold">Produits Pro</div>
+              <div className="text-[8px] text-gray-500 mt-1">Gamme Meguiar's & Koch Chemie</div>
+           </div>
+           <div className="text-center">
+              <div className="w-10 h-10 mx-auto bg-zinc-900 rounded-full flex items-center justify-center border border-emerald-500/30 mb-2">
+                 <Clock className="w-5 h-5 text-emerald-500" />
+              </div>
+              <div className="text-[10px] font-bold">Rapide</div>
+              <div className="text-[8px] text-gray-500 mt-1">Intervention sur site ou à domicile</div>
+           </div>
+        </div>
+      </div>
+
+      {/* Testimonial */}
+      <div className="p-6 bg-zinc-900">
+         <div className="bg-black p-4 rounded-lg border border-zinc-800 border-l-2 border-l-emerald-500">
+            <FakeStars />
+            <p className="text-[10px] italic text-zinc-300">"Ma Twingo est ressortie dans l'état où elle était le jour de la concession. Le forfait Premium vaut largement son prix !"</p>
          </div>
+      </div>
+      
+      {/* CTA */}
+      <div className="bg-black px-6 py-8 text-center border-t border-white/5">
+         <h2 className="text-sm font-bold text-white mb-2">Ne laissez pas la saleté s'installer</h2>
+         <button className="w-full bg-emerald-500 text-black font-bold uppercase tracking-wider text-[10px] py-3 rounded hover:bg-emerald-400 transition-colors">Prendre un rendez-vous</button>
+      </div>
+
+      {/* Footer */}
+      <div className="bg-zinc-950 py-4 text-center text-[8px] text-zinc-600">
+         CleanAuto © {new Date().getFullYear()}
       </div>
     </div>
   )
@@ -366,48 +531,93 @@ function NettoyageMiniSite() {
 
 function ArtisanMiniSite() {
   return (
-    <div className="flex flex-col bg-[#F3F4F6] text-gray-900 w-full h-[900px]">
-      <div className="h-[200px] relative">
-         <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=600&q=80" className="w-full h-full object-cover" />
-         <div className="absolute inset-0 flex p-4 justify-between items-start bg-gradient-to-b from-black/60 to-transparent">
-            <div className="flex items-center gap-1.5 text-white font-bold text-lg">
-               <div className="w-6 h-6 bg-amber-500 flex items-center justify-center rounded"><Hammer className="w-4 h-4 text-black" /></div>
+    <div className="flex flex-col bg-[#F3F4F6] text-gray-900 w-full">
+      {/* Hero */}
+      <div className="h-[220px] relative">
+         <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=600&q=80" className="w-full h-full object-cover" alt="Construction" />
+         <div className="absolute inset-0 flex p-4 justify-between items-start bg-gradient-to-b from-black/80 via-black/40 to-transparent">
+            <div className="flex items-center gap-2 text-white font-black text-xl tracking-tight">
+               <div className="w-7 h-7 bg-amber-500 flex items-center justify-center rounded shadow-lg"><Hammer className="w-4 h-4 text-gray-900" /></div>
                BâtiFutur
             </div>
          </div>
-         <div className="absolute bottom-4 left-4 bg-white p-3 shadow-lg rounded max-w-[80%]">
-            <div className="text-[12px] font-bold mb-1">Rénovation Globale</div>
-            <div className="w-full h-1 bg-gray-200 rounded mb-4"></div>
-            <div className="inline-flex items-center gap-1 text-[9px] text-amber-600 font-bold uppercase">
-               Demander un devis <ArrowRight className="w-3 h-3" />
+         <div className="absolute bottom-4 left-4 right-4 bg-white p-4 shadow-xl rounded-lg border border-gray-100">
+            <div className="text-[14px] font-black uppercase text-gray-900 mb-1">Rénovation Globale</div>
+            <div className="text-[10px] text-gray-500 mb-3">Donnez une nouvelle vie à votre habitat.</div>
+            <div className="w-full h-1 bg-gray-100 rounded mb-3 overflow-hidden">
+               <div className="h-full bg-amber-500 w-1/3"></div>
             </div>
+            <button className="w-full bg-gray-900 text-white py-2 rounded text-[9px] font-bold uppercase hover:bg-amber-500 hover:text-black transition-colors">
+               Demander une estimation
+            </button>
          </div>
       </div>
       
-      <div className="p-6 pb-2">
+      {/* Services */}
+      <div className="p-6 mt-6">
          <div className="flex items-center gap-2 mb-4">
-            <div className="w-1 h-4 bg-amber-500"></div>
-            <h2 className="text-sm font-bold">Nos Engagements</h2>
+            <div className="w-1.5 h-4 bg-amber-500"></div>
+            <h2 className="text-sm font-bold uppercase tracking-wide">Expertises</h2>
          </div>
-         <div className="grid grid-cols-2 gap-3 mb-6">
-            <div className="bg-white p-3 rounded shadow-sm border border-gray-100">
-               <div className="w-6 h-6 bg-amber-100 text-amber-600 rounded flex items-center justify-center mb-2"><ShieldCheck className="w-4 h-4" /></div>
-               <div className="text-[10px] font-bold">Garantie Décennale</div>
+         <div className="grid grid-cols-2 gap-3 mb-2">
+            <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100 hover:border-amber-400 transition-colors">
+               <Building2 className="w-5 h-5 text-amber-500 mb-2" />
+               <div className="text-[11px] font-bold mb-1">Gros Œuvre</div>
+               <div className="text-[8px] text-gray-500">Extensions, maçonnerie, fondations.</div>
             </div>
-            <div className="bg-white p-3 rounded shadow-sm border border-gray-100">
-               <div className="w-6 h-6 bg-amber-100 text-amber-600 rounded flex items-center justify-center mb-2"><Building2 className="w-4 h-4" /></div>
-               <div className="text-[10px] font-bold">Matériaux Pro</div>
+            <div className="bg-white p-4 rounded-lg shadow-sm border border-gray-100 hover:border-amber-400 transition-colors">
+               <div className="w-5 h-5 mb-2"><svg className="text-amber-500 w-full h-full" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m18 15-6-6-6 6"/></svg></div>
+               <div className="text-[11px] font-bold mb-1">Second Œuvre</div>
+               <div className="text-[8px] text-gray-500">Isolation, électricité, plomberie.</div>
             </div>
          </div>
       </div>
 
-      <div className="bg-gray-900 text-white p-6 pb-12 mt-4 relative">
-         <h2 className="text-sm font-bold mb-4 text-amber-500">Estimation en Ligne</h2>
-         <div className="space-y-3">
-            <div className="h-8 bg-gray-800 border border-gray-700 rounded px-3 flex items-center text-[10px] text-gray-400">Type de bien</div>
-            <div className="h-8 bg-gray-800 border border-gray-700 rounded px-3 flex items-center text-[10px] text-gray-400">Surface (m²)</div>
-            <div className="h-10 bg-amber-500 rounded text-gray-900 font-bold text-[11px] flex items-center justify-center mt-2">DÉMARRER LE PROJET</div>
+      {/* Avantages */}
+      <div className="px-6 py-6 border-y border-gray-200 bg-white">
+         <h2 className="text-sm font-bold mb-4">Nos Engagements</h2>
+         <div className="flex bg-gray-50 p-3 rounded border border-gray-100 gap-3 items-center mb-3">
+            <ShieldCheck className="w-6 h-6 text-amber-600 shrink-0" />
+            <div>
+               <div className="text-[10px] font-bold">Garantie Décennale</div>
+               <div className="text-[9px] text-gray-500">Protégé pour les 10 prochaines années</div>
+            </div>
          </div>
+         <div className="flex bg-gray-50 p-3 rounded border border-gray-100 gap-3 items-center">
+            <Clock className="w-6 h-6 text-amber-600 shrink-0" />
+            <div>
+               <div className="text-[10px] font-bold">Respect des délais</div>
+               <div className="text-[9px] text-gray-500">Planning rigoureux garanti sur contrat</div>
+            </div>
+         </div>
+      </div>
+
+      {/* Témoignages */}
+      <div className="py-6 px-6 bg-gray-100 text-center">
+         <FakeStars />
+         <p className="text-[10px] italic font-medium text-gray-700">"Travail sérieux, équipe ponctuelle et chantier rendu impeccable. L'extension de notre salon correspond exactement à ce que nous voulions."</p>
+         <div className="text-[9px] font-bold text-gray-900 mt-2">Albert H.</div>
+      </div>
+
+      {/* CTA Estimator */}
+      <div className="bg-gray-950 text-white p-6 relative">
+         <h2 className="text-sm font-bold mb-2 text-amber-500">Estimation en Ligne</h2>
+         <p className="text-[9px] text-gray-400 mb-4">Obtenez un pré-chiffrage gratuit.</p>
+         <div className="space-y-3">
+            <div className="h-9 bg-gray-900 border border-gray-800 rounded px-3 flex justify-between items-center text-[10px] text-gray-400">
+               Type de projet <ChevronRight className="w-3 h-3" />
+            </div>
+            <div className="h-9 bg-gray-900 border border-gray-800 rounded px-3 flex justify-between items-center text-[10px] text-gray-400">
+               Surface concernée <ChevronRight className="w-3 h-3" />
+            </div>
+            <button className="w-full h-10 bg-amber-500 rounded hover:bg-amber-400 text-gray-900 font-bold text-[10px] uppercase tracking-wide mt-2">Démarrer le projet</button>
+            <button className="w-full h-10 text-white border border-gray-700 rounded text-[10px] uppercase font-bold hover:bg-gray-800">Prendre un rendez-vous</button>
+         </div>
+      </div>
+
+      {/* Footer */}
+      <div className="bg-white py-4 text-center text-[8px] text-gray-500 border-t border-gray-200">
+         <p>BâtiFutur © {new Date().getFullYear()}</p>
       </div>
     </div>
   )
