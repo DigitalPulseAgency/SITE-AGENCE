@@ -60,14 +60,6 @@ export function Hero() {
 
           <motion.div 
             variants={itemVariants}
-            className="text-base md:text-lg text-gray-300 mb-12 max-w-2xl mx-auto font-medium leading-relaxed flex flex-col gap-1"
-          >
-            <p>Un système qui s'adapte à votre métier et travaille à votre place.</p>
-            <p>Ne perdez plus jamais un client à cause d'un manque de suivi ou de réactivité.</p>
-          </motion.div>
-
-          <motion.div 
-            variants={itemVariants}
             className="flex flex-col sm:flex-row items-center justify-center gap-6"
           >
             {/* Primary animated CTA Container */}
@@ -109,7 +101,9 @@ export function Hero() {
               className="w-full sm:w-auto"
             >
               <a 
-                href="#call-com-placeholder"
+                href="https://calendly.com/digitalpulse-agency/30min"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center justify-center w-full sm:w-auto px-10 py-5 text-lg font-bold text-white bg-white/5 border border-white/10 rounded-[40px] hover:bg-white/10 hover:border-white/20 transition-all duration-300 shadow-xl"
               >
                 <Calendar className="w-5 h-5 mr-2 text-primary-light" />

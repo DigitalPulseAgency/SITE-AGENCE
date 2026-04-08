@@ -60,12 +60,7 @@ export function PricingSection() {
               "Automatisation des actions",
               "Meilleure organisation"
             ]}
-          >
-            <a href="#contact" className="mt-auto flex items-center justify-center w-full px-5 py-3 bg-accent/90 hover:bg-accent text-surface text-sm font-bold rounded-lg transition-all duration-300 shadow-[0_0_15px_rgba(16,185,129,0.3)] hover:scale-105">
-              Demander un essai
-            </a>
-          </PricingCard>
-
+          />
           {/* Visibilité (Droite / Dominante Violette) */}
           <PricingCard
             variants={itemVariants}
@@ -83,36 +78,6 @@ export function PricingSection() {
           />
         </motion.div>
 
-        {/* 7 Jours d'Essai Gratuit Block (Moved outside and styled as premium floating banner) */}
-        <motion.div
-           initial={{ opacity: 0, y: 30 }}
-           whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: true }}
-           transition={{ duration: 0.6, delay: 0.4 }}
-           className="mt-12 max-w-4xl mx-auto p-6 md:p-8 rounded-2xl glass-card bg-gradient-to-br from-accent/5 to-primary/5 border border-white/10 relative overflow-hidden group flex flex-col md:flex-row items-center gap-8 justify-between shadow-2xl"
-        >
-           <div className="absolute top-0 right-0 w-64 h-64 bg-accent/10 rounded-full blur-[60px] pointer-events-none transition-colors duration-500 group-hover:bg-primary/10"></div>
-           
-           <div className="flex-1 relative z-10 text-center md:text-left">
-              <h3 className="text-2xl font-bold text-accent mb-2">7 jours d'essai gratuit</h3>
-              <p className="text-gray-300 font-medium text-sm">Vous testez le système. Vous voyez les résultats. Vous décidez.</p>
-           </div>
-
-           <ul className="text-sm text-gray-300 space-y-3 font-medium relative z-10 flex-1">
-              <li className="flex items-center gap-3">
-                 <div className="w-1.5 h-1.5 rounded-full bg-accent shrink-0"></div>
-                 Aucun engagement
-              </li>
-              <li className="flex items-center gap-3">
-                 <div className="w-1.5 h-1.5 rounded-full bg-accent shrink-0"></div>
-                 Test complet en conditions réelles
-              </li>
-              <li className="flex items-center gap-3">
-                 <div className="w-1.5 h-1.5 rounded-full bg-accent shrink-0"></div>
-                 Facturation uniquement aux résultats
-              </li>
-           </ul>
-        </motion.div>
 
       </div>
     </section>

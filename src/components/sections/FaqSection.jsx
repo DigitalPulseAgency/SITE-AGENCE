@@ -15,7 +15,7 @@ export function FaqSection() {
     },
     { 
       q: "Quels sont les risques ?", 
-      a: "Le vrai risque aujourd'hui, c'est de ne rien changer.\n\nContinuer à perdre du temps sur des tâches répétitives, manquer des opportunités et gérer seul des choses qui peuvent être automatisées.\n\nVous avez la possibilité de déléguer intelligemment à un système conçu pour ça.\n\nEt surtout, vous bénéficiez de 7 jours d'essai gratuit : vous testez, vous voyez les résultats, et vous décidez ensuite." 
+      a: "Le vrai risque aujourd'hui, c'est de ne rien changer.\n\nContinuer à perdre du temps sur des tâches répétitives, manquer des opportunités et gérer seul des choses qui peuvent être automatisées.\n\nVous avez la possibilité de déléguer intelligemment à un système conçu pour ça." 
     }
   ];
 

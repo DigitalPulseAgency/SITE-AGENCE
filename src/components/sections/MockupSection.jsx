@@ -42,6 +42,16 @@ export function MockupSection() {
           >
             Imaginez avoir <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary-light to-primary-light">le contrôle total</span>
           </motion.h2>
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-center text-white/70 text-base md:text-lg max-w-2xl mx-auto flex flex-col gap-1"
+          >
+            <p>Un système qui s’adapte à votre métier et travaille à votre place.</p>
+            <p>Ne perdez plus jamais un client à cause d’un manque de suivi ou de réactivité.</p>
+          </motion.div>
 
         </div>
 
