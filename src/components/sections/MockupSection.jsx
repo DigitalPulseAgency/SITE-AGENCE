@@ -42,16 +42,7 @@ export function MockupSection() {
           >
             Imaginez avoir <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary-light to-primary-light">le contrôle total</span>
           </motion.h2>
-          <div className="space-y-2 mt-4 text-lg md:text-xl font-medium">
-            <p className="text-white">
-              Un système qui <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary-light to-primary-light">s’adapte à votre métier</span><br className="hidden sm:block"/>
-              et <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary-light to-primary-light">travaille à votre place</span>.
-            </p>
-            <p className="text-gray-300 font-normal">
-              Ne perdez <strong className="text-white">plus jamais un client</strong><br className="hidden sm:block"/>
-              à cause d’un <strong className="text-white">manque de suivi</strong> ou de <strong className="text-white">réactivité</strong>.
-            </p>
-          </div>
+
         </div>
 
         {/* Realistic Dashboard Mockup */}
