@@ -47,15 +47,15 @@ export function Hero() {
             variants={itemVariants}
             className="text-5xl md:text-[5.5rem] font-extrabold tracking-tight mb-6 leading-[1.1]"
           >
-            Plus de clients.<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light via-secondary-light to-primary inline-block mt-2">Moins de tâches.</span>
+            Pendant que vos concurrents postent des photos,<br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light via-secondary-light to-primary inline-block mt-2">vous, vous dominez.</span>
           </motion.h1>
 
           <motion.p 
             variants={itemVariants}
-            className="text-2xl md:text-3xl lg:text-4xl font-bold mt-8 mb-6 text-transparent bg-clip-text bg-gradient-to-r from-primary-light via-secondary-light to-primary drop-shadow-sm"
+            className="text-2xl md:text-3xl lg:text-4xl font-bold mt-8 mb-6 text-transparent bg-clip-text bg-gradient-to-r from-primary-light via-secondary-light to-primary drop-shadow-sm leading-tight"
           >
-            Votre business tourne, même quand vous ne travaillez pas.
+            Spécialiste en création de contenu 100% IA pour les conciergeries immobilières — des vidéos cinématiques que personne dans votre ville ne fait encore.
           </motion.p>
 
           <motion.div 

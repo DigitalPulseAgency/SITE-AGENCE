@@ -10,12 +10,16 @@ import { FounderSection } from './components/sections/FounderSection';
 import { ProcessSection } from './components/sections/ProcessSection';
 import { FaqSection } from './components/sections/FaqSection';
 import { Footer } from './components/sections/Footer';
+import { VideoShowcase } from './components/sections/VideoShowcase';
+import { PsychologicalImpact } from './components/sections/PsychologicalImpact';
 
 function App() {
   return (
     <div className="bg-background min-h-screen">
       <Navbar />
       <Hero />
+      <VideoShowcase />
+      <PsychologicalImpact />
       <MockupSection />
       <ProblemSection />
       <SolutionSection />
