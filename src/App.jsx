@@ -19,11 +19,11 @@ function App() {
       <Navbar />
       <Hero />
       <VideoShowcase />
+      <PricingSection />
       <PsychologicalImpact />
       <MockupSection />
       <ProblemSection />
       <SolutionSection />
-      <PricingSection />
       <PortfolioSection />
       <ComparisonSection />
       <FounderSection />
