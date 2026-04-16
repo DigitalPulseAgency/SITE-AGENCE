@@ -25,7 +25,7 @@ export function VideoShowcase() {
             variants={itemVariants}
             className="text-3xl md:text-5xl font-bold mb-6"
           >
-            Ce que vos futurs propriétaires voient sur Instagram
+            Ce que vos futurs clients voient sur Instagram
           </motion.h2>
           <motion.p 
             variants={itemVariants}
@@ -107,7 +107,7 @@ export function VideoShowcase() {
            className="mt-16 text-center"
         >
           <p className="text-gray-400 max-w-3xl mx-auto text-lg leading-relaxed bg-white/5 p-6 rounded-2xl border border-white/10">
-            Chaque vidéo est créée à partir de vos vrais biens — zéro stock, zéro générique, impossible à reproduire par vos concurrents.
+            Chaque contenu est créé à partir de votre identité — zéro stock, zéro générique, impossible à reproduire par vos concurrents.
           </p>
         </motion.div>
       </div>

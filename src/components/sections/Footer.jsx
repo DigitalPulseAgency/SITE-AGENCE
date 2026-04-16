@@ -119,12 +119,9 @@ export function Footer() {
               <label className="block text-sm font-medium text-gray-400 mb-2">Besoin principal</label>
               <select name="besoin" value={formData.besoin} onChange={handleChange} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300 appearance-none">
                 <option value="" className="bg-surface text-gray-500">Sélectionnez un besoin</option>
-                <option value="Perte de temps sur tâches répétitives" className="bg-surface">Perte de temps sur tâches répétitives</option>
-                <option value="Trop d'appels manqués" className="bg-surface">Trop d'appels manqués</option>
-                <option value="Difficulté à gérer les demandes clients" className="bg-surface">Difficulté à gérer les demandes clients</option>
-                <option value="Manque d'organisation" className="bg-surface">Manque d'organisation</option>
-                <option value="Pas assez de clients" className="bg-surface">Pas assez de clients</option>
-                <option value="Trop de relances" className="bg-surface">Trop de relances</option>
+                <option value="Je veux développer mon audience" className="bg-surface">Je veux développer mon audience</option>
+                <option value="Je n'ai pas le temps pour mes réseaux" className="bg-surface">Je n'ai pas le temps pour mes réseaux</option>
+                <option value="Je veux déléguer ma création de contenu IA" className="bg-surface">Je veux déléguer ma création de contenu IA</option>
                 <option value="Autre" className="bg-surface">Autre</option>
               </select>
             </div>

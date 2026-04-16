@@ -55,7 +55,7 @@ export function Hero() {
             variants={itemVariants}
             className="text-2xl md:text-3xl lg:text-4xl font-bold mt-8 mb-6 text-transparent bg-clip-text bg-gradient-to-r from-primary-light via-secondary-light to-primary drop-shadow-sm leading-tight"
           >
-            Spécialiste en création de contenu 100% IA pour les conciergeries immobilières — des vidéos cinématiques que personne dans votre ville ne fait encore.
+            Spécialiste en gestion de réseaux sociaux 100% IA — Des contenus viraux et une présence digitale automatisée pour écraser la concurrence.
           </motion.p>
 
           <motion.div 

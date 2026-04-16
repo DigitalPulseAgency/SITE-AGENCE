@@ -3,10 +3,10 @@ import { XCircle } from 'lucide-react';
 
 export function ProblemSection() {
   const problems = [
-    "Vous perdez des clients sans même le savoir",
-    "Vous oubliez de relancer au bon moment",
-    "Vous êtes constamment interrompu par des demandes",
-    "Votre business dépend entièrement de vous"
+    "Vous passez des heures à chercher quoi publier",
+    "Vos concurrents prennent toute la visibilité en ligne",
+    "Payer une agence classique vous coûte trop cher",
+    "Votre régularité sur les réseaux s'effondre vite"
   ];
 
   return (

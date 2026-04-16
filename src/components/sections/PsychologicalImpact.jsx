@@ -39,8 +39,8 @@ export function PsychologicalImpact() {
           />
           <ComparisonCard 
              delay={0.4}
-             euxText="Cherchent des propriétaires sans stratégie claire"
-             vousText="Les propriétaires vous trouvent car vous dominez votre ville"
+             euxText="Cherchent des clients sans stratégie sociale claire"
+             vousText="Vos clients vous trouvent car vous dominez votre marché"
           />
         </div>
 
@@ -69,7 +69,7 @@ export function PsychologicalImpact() {
                 <div className="absolute top-0 -inset-full h-full w-1/2 block transform -skew-x-12 bg-gradient-to-r from-transparent via-white/40 to-transparent animate-[shimmer_2s_infinite]" />
               </div>
               <div className="relative z-10 flex items-center gap-2 drop-shadow-md">
-                 Je veux prendre le monopole de ma ville
+                 Je veux dominer mes réseaux sociaux
               </div>
             </a>
           </motion.div>
