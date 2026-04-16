@@ -12,6 +12,7 @@ import { FaqSection } from './components/sections/FaqSection';
 import { Footer } from './components/sections/Footer';
 import { VideoShowcase } from './components/sections/VideoShowcase';
 import { PsychologicalImpact } from './components/sections/PsychologicalImpact';
+import { WebsitesPricingSection } from './components/sections/WebsitesPricingSection';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
       <ProblemSection />
       <SolutionSection />
       <PortfolioSection />
+      <WebsitesPricingSection />
       <ComparisonSection />
       <FounderSection />
       <ProcessSection />
