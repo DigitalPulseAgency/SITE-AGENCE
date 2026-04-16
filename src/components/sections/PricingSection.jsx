@@ -56,7 +56,7 @@ export function PricingSection() {
             icon={<Calendar className="w-6 h-6 text-gray-300" />}
             title="Présence"
             description="L'offre essentielle pour établir une image professionnelle en ligne, maintenir votre crédibilité et rester visible."
-            price={<>69<span className="text-xl text-gray-500 font-semibold ml-1">€/mois</span></>}
+            price={<>59,99<span className="text-xl text-gray-500 font-semibold ml-1">€/mois</span></>}
             colorTheme="slate"
             features={[
               "2 posts vidéo professionnels / semaine",
@@ -109,6 +109,29 @@ export function PricingSection() {
             ]}
             ctaText="Déployer ce système"
           />
+        </motion.div>
+
+        {/* Global Call CTA */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mt-24 max-w-3xl mx-auto relative z-20"
+        >
+          <p className="text-xl md:text-2xl font-bold mb-10 text-gray-300 leading-relaxed">
+            Un simple appel pour structurer l'acquisition de vos futurs clients.
+          </p>
+          <motion.a 
+            href="tel:0615940884"
+            className="relative inline-flex items-center justify-center px-10 py-[22px] font-bold rounded-full transition-all duration-300 text-lg md:text-xl group bg-gradient-to-r from-secondary-light to-primary-light text-white hover:scale-[1.03] active:scale-[0.98] shadow-[0_0_30px_rgba(59,130,246,0.3)] hover:shadow-[0_0_50px_rgba(59,130,246,0.6)]"
+            animate={{ boxShadow: ['0 0 20px rgba(59,130,246,0.2)', '0 0 50px rgba(59,130,246,0.6)', '0 0 20px rgba(59,130,246,0.2)'] }}
+            transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+          >
+            <div className="absolute inset-0 rounded-full bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+            <span className="relative z-10 flex items-center gap-3">
+              <span className="text-2xl">📞</span> Je veux activer ce système
+            </span>
+          </motion.a>
         </motion.div>
       </div>
     </section>
