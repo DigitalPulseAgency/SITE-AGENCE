@@ -47,7 +47,7 @@ export function WebsitesPricingSection() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 max-w-6xl mx-auto items-center"
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 max-w-6xl mx-auto items-stretch"
         >
           {/* Offer 1 */}
           <WebPricingCard
@@ -164,7 +164,7 @@ function WebPricingCard({ variants, icon, title, description, price, subprice, h
         </p>
       </div>
 
-      <div className="relative z-10 mb-8 min-h-[100px]">
+      <div className="relative z-10 border-b border-white/10 pb-8 mb-6 flex-1">
         <div className="text-5xl lg:text-6xl font-black tracking-tighter text-white">
           {price}
         </div>

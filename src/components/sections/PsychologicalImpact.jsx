@@ -16,33 +16,7 @@ export function PsychologicalImpact() {
           <h2 className="text-3xl md:text-5xl font-extrabold mb-6 leading-tight">
             99% de vos concurrents font<br className="hidden md:block" /> tous la même chose.
           </h2>
-          <p className="text-xl md:text-2xl text-transparent bg-clip-text bg-gradient-to-r from-accent to-primary-light font-bold">
-            Voici pourquoi vous allez les dépasser.
-          </p>
         </motion.div>
-
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          <ComparisonCard 
-             delay={0.1}
-             euxText="Postent des photos que personne ne regarde"
-             vousText="Publiez des vidéos cinématiques qui arrêtent le scroll en 2 secondes"
-          />
-          <ComparisonCard 
-             delay={0.2}
-             euxText="Utilisent les mêmes visuels que tous leurs concurrents"
-             vousText="Avez un contenu unique qu'aucun concurrent ne peut copier"
-          />
-          <ComparisonCard 
-             delay={0.3}
-             euxText="Publient de façon irrégulière quand ils ont le temps"
-             vousText="Avez un calendrier automatisé, chaque semaine, sans y penser"
-          />
-          <ComparisonCard 
-             delay={0.4}
-             euxText="Cherchent des clients sans stratégie sociale claire"
-             vousText="Vos clients vous trouvent car vous dominez votre marché"
-          />
-        </div>
 
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -68,7 +42,7 @@ export function PsychologicalImpact() {
               <div className="absolute inset-0 z-0 pointer-events-none">
                 <div className="absolute top-0 -inset-full h-full w-1/2 block transform -skew-x-12 bg-gradient-to-r from-transparent via-white/40 to-transparent animate-[shimmer_2s_infinite]" />
               </div>
-              <div className="relative z-10 flex items-center gap-2 drop-shadow-md">
+              <div className="relative z-10 flex items-center justify-center w-full gap-2 drop-shadow-md text-center">
                  Je veux dominer mes réseaux sociaux
               </div>
             </a>
@@ -79,25 +53,3 @@ export function PsychologicalImpact() {
   );
 }
 
-function ComparisonCard({ euxText, vousText, delay }) {
-  return (
-    <motion.div 
-       initial={{ opacity: 0, y: 30 }}
-       whileInView={{ opacity: 1, y: 0 }}
-       viewport={{ once: true }}
-       transition={{ delay, duration: 0.5 }}
-       className="flex flex-col h-full rounded-2xl bg-surface border border-white/5 overflow-hidden hover:border-white/10 transition-colors"
-    >
-      <div className="p-6 bg-white/[0.02] border-b border-white/5 flex-1 flex flex-col justify-center">
-         <span className="text-sm font-bold text-gray-500 uppercase tracking-widest mb-3">Eux</span>
-         <p className="text-gray-400 leading-relaxed font-medium">{euxText}</p>
-      </div>
-      <div className="p-6 bg-gradient-to-br from-surface to-accent/5 flex-1 flex flex-col justify-center relative shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] text-left">
-         {/* Subtle glow behind vous */}
-         <div className="absolute top-0 right-0 w-32 h-32 bg-accent/10 rounded-full blur-[40px]" />
-         <span className="text-sm font-bold text-accent uppercase tracking-widest mb-3 relative z-10">Vous</span>
-         <p className="text-white font-bold leading-relaxed relative z-10 text-lg">{vousText}</p>
-      </div>
-    </motion.div>
-  );
-}

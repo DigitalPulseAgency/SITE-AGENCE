@@ -8,16 +8,6 @@ import {
 export function PortfolioSection() {
   const sites = [
     { 
-      name: "RentLux", 
-      title: "Location premium", 
-      desc: "Processus de réservation 24/7 en ligne centré sur un parcours client 100% automatisé.",
-      tags: ["+ de réservations", "Paiement en ligne"],
-      benefits: ["Prise de rendez-vous automatique", "Gestion centralisée du calendrier", "Suivi client automatisé"],
-      result: "+45% de réservations en ligne",
-      glowColor: "group-hover:shadow-[0_0_40px_rgba(217,119,6,0.15)] group-hover:border-amber-500/30",
-      content: <LocationCarsMiniSite />
-    },
-    { 
       name: "Elite Conciergerie", 
       title: "Conciergerie", 
       desc: "Création d'un système qui rassure les propriétaires d'appartements et met en valeur les prestations.",
@@ -26,16 +16,6 @@ export function PortfolioSection() {
       result: "x2 nouveaux propriétaires/mois",
       glowColor: "group-hover:shadow-[0_0_40px_rgba(250,250,250,0.1)] group-hover:border-white/20",
       content: <ConciergerieMiniSite />
-    },
-    { 
-      name: "ClimPro", 
-      title: "Experts Climatisation", 
-      desc: "Mise en avant des interventions d'urgence avec un module de demande de devis express connecté au CRM.",
-      tags: ["+ de devis", "Automatisation"],
-      benefits: ["Formulaire de devis qualifiant", "Appel d'urgence 1-clic", "Intégration directe au CRM"],
-      result: "+60% de demandes entrantes",
-      glowColor: "group-hover:shadow-[0_0_40px_rgba(59,130,246,0.15)] group-hover:border-blue-500/30",
-      content: <ClimatisationMiniSite />
     },
     { 
       name: "Azur Piscines", 
@@ -48,6 +28,16 @@ export function PortfolioSection() {
       content: <PiscinisteMiniSite />
     },
     { 
+      name: "RentLux", 
+      title: "Location premium", 
+      desc: "Processus de réservation 24/7 en ligne centré sur un parcours client 100% automatisé.",
+      tags: ["+ de réservations", "Paiement en ligne"],
+      benefits: ["Prise de rendez-vous automatique", "Gestion centralisée du calendrier", "Suivi client automatisé"],
+      result: "+45% de réservations en ligne",
+      glowColor: "group-hover:shadow-[0_0_40px_rgba(217,119,6,0.15)] group-hover:border-amber-500/30",
+      content: <LocationCarsMiniSite />
+    },
+    { 
       name: "CleanAuto", 
       title: "Centre detailing", 
       desc: "Système de vente de forfaits ultra clair avec la réservation de créneaux synchronisée.",
@@ -58,15 +48,15 @@ export function PortfolioSection() {
       content: <NettoyageMiniSite />
     },
     { 
-      name: "BâtiFutur", 
-      title: "Gros & Second Œuvre", 
-      desc: "Un espace de preuve sociale avec avis authentifiés et outil d'estimation de chantier en direct.",
-      tags: ["Devis qualifiés", "Confiance client"],
-      benefits: ["Estimateur en ligne interactif", "Valorisation des avis clients", "Vitrine de réassurance absolue"],
-      result: "Qualité des appels x3",
-      glowColor: "group-hover:shadow-[0_0_40px_rgba(245,158,11,0.15)] group-hover:border-yellow-500/30",
-      content: <ArtisanMiniSite />
-    },
+      name: "ClimPro", 
+      title: "Experts Climatisation", 
+      desc: "Mise en avant des interventions d'urgence avec un module de demande de devis express connecté au CRM.",
+      tags: ["+ de devis", "Automatisation"],
+      benefits: ["Formulaire de devis qualifiant", "Appel d'urgence 1-clic", "Intégration directe au CRM"],
+      result: "+60% de demandes entrantes",
+      glowColor: "group-hover:shadow-[0_0_40px_rgba(59,130,246,0.15)] group-hover:border-blue-500/30",
+      content: <ClimatisationMiniSite />
+    }
   ];
 
   return (
@@ -99,7 +89,7 @@ export function PortfolioSection() {
         </div>
 
         {/* Portfolio Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-20">
+        <div className="flex flex-wrap justify-center gap-x-10 gap-y-20">
           {sites.map((site, i) => (
             <motion.div
               key={i}
@@ -107,7 +97,7 @@ export function PortfolioSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, delay: i * 0.15, ease: "easeOut" }}
-              className="flex flex-col gap-6 group cursor-pointer"
+              className="flex flex-col gap-6 group cursor-pointer w-full md:w-[calc(50%-1.25rem)] lg:w-[calc(33.333%-1.666rem)]"
             >
               {/* Browser Mockup */}
               <div className={`relative rounded-2xl overflow-hidden border border-white/10 bg-[#0a0a0a] transition-all duration-700 md:group-hover:scale-[1.03] md:group-hover:-translate-y-4 shadow-xl h-[500px] md:h-[600px] flex flex-col ${site.glowColor}`}>
