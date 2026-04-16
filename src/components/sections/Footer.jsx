@@ -94,13 +94,11 @@ export function Footer() {
               <label className="block text-sm font-medium text-gray-400 mb-2">Votre activité</label>
               <select name="activite" value={formData.activite} onChange={handleChange} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-all duration-300 appearance-none">
                 <option value="" className="bg-surface text-gray-500">Sélectionnez une option</option>
-                <option value="Location de voitures" className="bg-surface">Location de voitures</option>
-                <option value="Conciergerie immobilière" className="bg-surface">Conciergerie immobilière</option>
-                <option value="Artisan du bâtiment" className="bg-surface">Artisan du bâtiment</option>
-                <option value="Climatisation" className="bg-surface">Climatisation</option>
-                <option value="Pisciniste" className="bg-surface">Pisciniste</option>
-                <option value="Nettoyage automobile" className="bg-surface">Nettoyage automobile</option>
-                <option value="Autre" className="bg-surface">Autre</option>
+                <option value="Conciergerie immobilière" className="bg-surface">🏢 Conciergerie immobilière</option>
+                <option value="Location de voitures" className="bg-surface">🚗 Location de voitures (secteur automobile : carrossier / mécanicien)</option>
+                <option value="Nettoyage automobile" className="bg-surface">✨ Nettoyage automobile</option>
+                <option value="Artisan du bâtiment" className="bg-surface">🛠️ Artisan du bâtiment</option>
+                <option value="Autre" className="bg-surface">📌 Autre</option>
               </select>
             </div>
 
