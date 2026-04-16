@@ -22,15 +22,15 @@ function App() {
       <VideoShowcase />
       <PricingSection />
       <PsychologicalImpact />
-      <MockupSection />
-      <ProblemSection />
-      <SolutionSection />
       <PortfolioSection />
       <WebsitesPricingSection />
-      <ComparisonSection />
+      <ProblemSection />
+      <SolutionSection />
+      <MockupSection />
       <FounderSection />
       <ProcessSection />
       <FaqSection />
+      <ComparisonSection />
       <Footer />
     </div>
   );
