@@ -44,11 +44,11 @@ export function VideoShowcase() {
           viewport={{ once: true, margin: "-100px" }}
           className="flex overflow-x-auto pb-8 md:pb-0 md:grid md:grid-cols-3 gap-6 md:gap-8 snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
         >
-          {/* Video 1 */}
+          {/* Video 3 (Now first) */}
           <motion.div variants={itemVariants} className="flex-none w-[80vw] md:w-auto snap-center group">
-            <div className="relative rounded-2xl overflow-hidden aspect-[9/16] bg-background border border-white/10 shadow-2xl shadow-primary/5 group-hover:border-primary/50 transition-colors duration-500">
+            <div className="relative rounded-2xl overflow-hidden aspect-[9/16] bg-background border border-white/10 shadow-2xl shadow-accent/5 group-hover:border-accent/50 transition-colors duration-500">
                <video 
-                  src="/media/1.mp4" 
+                  src="/media/3.mp4" 
                   autoPlay 
                   loop 
                   muted 
@@ -57,8 +57,8 @@ export function VideoShowcase() {
                />
                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-50"></div>
             </div>
-            <p className="mt-4 text-center font-medium text-lg text-white group-hover:text-primary-light transition-colors">
-              L'appartement qui fait rêver
+            <p className="mt-4 text-center font-medium text-lg text-white group-hover:text-accent-light transition-colors">
+              L'excellence du détail
             </p>
           </motion.div>
 
@@ -80,11 +80,11 @@ export function VideoShowcase() {
             </p>
           </motion.div>
 
-          {/* Video 3 */}
+          {/* Video 1 (Now last) */}
           <motion.div variants={itemVariants} className="flex-none w-[80vw] md:w-auto snap-center group">
-            <div className="relative rounded-2xl overflow-hidden aspect-[9/16] bg-background border border-white/10 shadow-2xl shadow-accent/5 group-hover:border-accent/50 transition-colors duration-500">
+            <div className="relative rounded-2xl overflow-hidden aspect-[9/16] bg-background border border-white/10 shadow-2xl shadow-primary/5 group-hover:border-primary/50 transition-colors duration-500">
                <video 
-                  src="/media/3.mp4" 
+                  src="/media/1.mp4" 
                   autoPlay 
                   loop 
                   muted 
@@ -93,8 +93,8 @@ export function VideoShowcase() {
                />
                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-50"></div>
             </div>
-            <p className="mt-4 text-center font-medium text-lg text-white group-hover:text-accent-light transition-colors">
-              L'excellence du détail
+            <p className="mt-4 text-center font-medium text-lg text-white group-hover:text-primary-light transition-colors">
+              L'appartement qui fait rêver
             </p>
           </motion.div>
         </motion.div>
