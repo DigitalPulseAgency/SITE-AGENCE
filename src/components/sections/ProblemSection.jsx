@@ -10,7 +10,7 @@ export function ProblemSection() {
   ];
 
   return (
-    <section className="py-24 relative" id="probleme">
+    <section className="py-24 relative bg-bg" id="probleme">
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mx-auto">
           <div className="space-y-4">
@@ -21,9 +21,9 @@ export function ProblemSection() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="flex items-center gap-4 text-xl md:text-2xl font-medium text-gray-300 bg-surface/50 p-6 rounded-2xl border border-white/5"
+                className="flex items-center gap-4 text-xl md:text-2xl font-medium text-ink bg-bg-card p-6 rounded-2xl border border-line shadow-[0_4px_16px_-4px_rgba(26,21,48,0.08)]"
               >
-                <XCircle className="w-8 h-8 text-red-500/80 shrink-0" />
+                <XCircle className="w-8 h-8 text-error shrink-0" />
                 <p>{problem}</p>
               </motion.div>
             ))}
@@ -36,8 +36,8 @@ export function ProblemSection() {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="mt-16 text-center"
           >
-            <p className="text-2xl md:text-3xl font-semibold text-white">
-              Et pendant ce temps, <span className="text-red-500">vos concurrents récupèrent ces clients</span> à votre place.
+            <p className="text-2xl md:text-3xl font-semibold text-ink">
+              Et pendant ce temps, <span className="text-error font-medium">vos concurrents récupèrent ces clients</span> à votre place.
             </p>
           </motion.div>
         </div>

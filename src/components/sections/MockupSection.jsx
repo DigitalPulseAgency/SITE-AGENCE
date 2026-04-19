@@ -31,23 +31,23 @@ export function MockupSection() {
   }, []);
 
   return (
-    <section className="py-24 relative overflow-hidden" id="demonstration">
+    <section className="py-24 relative overflow-hidden bg-bg" id="demonstration">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-4xl font-bold mb-4"
+            className="text-3xl md:text-4xl font-bold mb-4 text-ink"
           >
-            Imaginez avoir <span className="text-transparent bg-clip-text bg-gradient-to-r from-secondary-light to-primary-light">le contrôle total</span>
+            Imaginez avoir <span className="text-purple-deep bg-clip-text bg-gradient-to-r from-purple-deep to-purple-signa" style={{ WebkitTextFillColor: 'transparent', color: '#5B3FD9' }}>le contrôle total</span>
           </motion.h2>
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-center text-white/70 text-base md:text-lg max-w-2xl mx-auto flex flex-col gap-1"
+            className="text-center text-ink-secondary text-base md:text-lg max-w-2xl mx-auto flex flex-col gap-1"
           >
             <p>Un système qui s’adapte à votre métier et travaille à votre place.</p>
             <p>Ne perdez plus jamais un client à cause d’un manque de suivi ou de réactivité.</p>
@@ -72,14 +72,14 @@ export function MockupSection() {
           >
             {/* Conteneur taille fixe desktop redimensionné proportionnellement */}
             <div 
-              className="absolute top-0 left-0 w-[1024px] h-[750px] shadow-2xl origin-top-left"
+              className="absolute top-0 left-0 w-[1024px] h-[750px] shadow-[0_24px_64px_-16px_rgba(26,21,48,0.18)] origin-top-left rounded-2xl"
               style={{ 
                 transform: `scale(${scale})`,
               }}
             >
               
               {/* Dashboard Container */}
-              <div className="relative rounded-2xl border border-white/10 bg-[#0a0f1c] shadow-[0_0_50px_rgba(107,50,236,0.15)] flex flex-col h-full w-full overflow-hidden p-5 transition-shadow duration-700 hover:shadow-[0_0_60px_rgba(107,50,236,0.25)]">
+              <div className="relative rounded-2xl border border-white/10 bg-[#0a0f1c] flex flex-col h-full w-full overflow-hidden p-5">
                 
                 {/* Window controls & Browser bar */}
                 <div className="flex items-center gap-4 mb-5 pb-5 border-b border-white/5 shrink-0">

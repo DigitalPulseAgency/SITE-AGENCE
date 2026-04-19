@@ -2,10 +2,7 @@ import { motion } from 'framer-motion';
 
 export function PsychologicalImpact() {
   return (
-    <section className="relative py-24 bg-background overflow-hidden" id="impact">
-      <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px] mix-blend-screen opacity-50 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[100px] mix-blend-screen opacity-50 pointer-events-none" />
-
+    <section className="relative py-24 bg-bg overflow-hidden" id="impact">
       <div className="container mx-auto px-6 relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
@@ -13,7 +10,7 @@ export function PsychologicalImpact() {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-extrabold mb-6 leading-tight">
+          <h2 className="text-3xl md:text-5xl font-extrabold mb-6 leading-tight text-ink">
             99% de vos concurrents font<br className="hidden md:block" /> tous la même chose.
           </h2>
         </motion.div>
@@ -32,17 +29,17 @@ export function PsychologicalImpact() {
              whileTap={{ scale: 0.95 }}
              className="w-full sm:w-auto relative group mt-8"
           >
-            <div className="absolute -inset-2 bg-gradient-to-r from-[#10b981] to-[#047857] rounded-full blur-[15px] opacity-60 group-hover:opacity-100 transition duration-500 animate-pulse-slow"></div>
+            <div className="absolute -inset-2 bg-gradient-to-r from-green-cta to-[#059669] rounded-full blur-[15px] opacity-20 group-hover:opacity-40 transition duration-500"></div>
             <a 
               href="https://calendly.com/digitalpulse-agency/30min"
               target="_blank"
               rel="noopener noreferrer"
-              className="relative flex items-center justify-center w-full px-10 py-5 font-bold rounded-full shadow-2xl transition-all duration-300 overflow-hidden bg-accent text-surface text-lg md:text-xl border border-[#10b981]/50"
+              className="relative flex items-center justify-center w-full px-10 py-5 font-bold rounded-full shadow-[0_8px_20px_-8px_rgba(5,150,105,0.4)] transition-all duration-300 overflow-hidden bg-green-cta text-white text-lg md:text-xl border border-green-cta hover:bg-[#059669]"
             >
               <div className="absolute inset-0 z-0 pointer-events-none">
-                <div className="absolute top-0 -inset-full h-full w-1/2 block transform -skew-x-12 bg-gradient-to-r from-transparent via-white/40 to-transparent animate-[shimmer_2s_infinite]" />
+                <div className="absolute top-0 -inset-full h-full w-1/2 block transform -skew-x-12 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-[shimmer_2s_infinite]" />
               </div>
-              <div className="relative z-10 flex items-center justify-center w-full gap-2 drop-shadow-md text-center">
+              <div className="relative z-10 flex items-center justify-center w-full gap-2 text-center">
                  Je veux dominer mes réseaux sociaux
               </div>
             </a>
@@ -52,4 +49,3 @@ export function PsychologicalImpact() {
     </section>
   );
 }
-

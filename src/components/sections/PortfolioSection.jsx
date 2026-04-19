@@ -14,7 +14,6 @@ export function PortfolioSection() {
       tags: ["+ de leads", "Acquisition propriétaire"],
       benefits: ["Simulateur de revenus intégré", "Design rassurant et premium", "Génération de leads qualifiés"],
       result: "x2 nouveaux propriétaires/mois",
-      glowColor: "group-hover:shadow-[0_0_40px_rgba(250,250,250,0.1)] group-hover:border-white/20",
       content: <ConciergerieMiniSite />
     },
     { 
@@ -24,7 +23,6 @@ export function PortfolioSection() {
       tags: ["Prise de rendez-vous", "Image de marque"],
       benefits: ["Galerie immersive de réalisations", "Prise de rdv automatisée", "Qualification du budget client"],
       result: "+35% de chantiers signés",
-      glowColor: "group-hover:shadow-[0_0_40px_rgba(6,182,212,0.15)] group-hover:border-cyan-500/30",
       content: <PiscinisteMiniSite />
     },
     { 
@@ -34,7 +32,6 @@ export function PortfolioSection() {
       tags: ["+ de réservations", "Paiement en ligne"],
       benefits: ["Prise de rendez-vous automatique", "Gestion centralisée du calendrier", "Suivi client automatisé"],
       result: "+45% de réservations en ligne",
-      glowColor: "group-hover:shadow-[0_0_40px_rgba(217,119,6,0.15)] group-hover:border-amber-500/30",
       content: <LocationCarsMiniSite />
     },
     { 
@@ -44,7 +41,6 @@ export function PortfolioSection() {
       tags: ["Créneaux synchronisés", "+ de CA"],
       benefits: ["Présentation claire des forfaits", "Paiement d'acompte en ligne", "Rappels SMS automatiques"],
       result: "+28% de ventes Premium",
-      glowColor: "group-hover:shadow-[0_0_40px_rgba(16,185,129,0.15)] group-hover:border-emerald-500/30",
       content: <NettoyageMiniSite />
     },
     { 
@@ -54,16 +50,12 @@ export function PortfolioSection() {
       tags: ["+ de devis", "Automatisation"],
       benefits: ["Formulaire de devis qualifiant", "Appel d'urgence 1-clic", "Intégration directe au CRM"],
       result: "+60% de demandes entrantes",
-      glowColor: "group-hover:shadow-[0_0_40px_rgba(59,130,246,0.15)] group-hover:border-blue-500/30",
       content: <ClimatisationMiniSite />
     }
   ];
 
   return (
-    <section className="py-32 bg-background relative overflow-hidden" id="sites-internet">
-      
-      {/* Background ambient light */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary-light/5 rounded-full blur-[150px] pointer-events-none mix-blend-screen" />
+    <section className="py-32 bg-bg relative overflow-hidden" id="sites-internet">
       
       <div className="container mx-auto px-6 relative z-10">
         
@@ -73,16 +65,16 @@ export function PortfolioSection() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-bold mb-6"
+            className="text-4xl md:text-5xl font-bold mb-6 text-ink"
           >
-            Des sites pensés pour <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light to-secondary-light">convertir</span>
+            Des sites pensés pour <span className="text-purple-deep bg-clip-text bg-gradient-to-r from-purple-deep to-purple-signa" style={{ WebkitTextFillColor: 'transparent', color: '#5B3FD9' }}>convertir</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
+            className="text-lg md:text-xl text-ink-secondary max-w-3xl mx-auto leading-relaxed"
           >
             Chaque site est conçu pour attirer, convaincre et transformer vos visiteurs en clients.
           </motion.p>
@@ -100,7 +92,7 @@ export function PortfolioSection() {
               className="flex flex-col gap-6 group cursor-pointer w-full md:w-[calc(50%-1.25rem)] lg:w-[calc(33.333%-1.666rem)]"
             >
               {/* Browser Mockup */}
-              <div className={`relative rounded-2xl overflow-hidden border border-white/10 bg-[#0a0a0a] transition-all duration-700 md:group-hover:scale-[1.03] md:group-hover:-translate-y-4 shadow-xl h-[500px] md:h-[600px] flex flex-col ${site.glowColor}`}>
+              <div className={`relative rounded-2xl overflow-hidden border border-line transition-all duration-700 md:group-hover:scale-[1.03] md:group-hover:-translate-y-4 shadow-[0_4px_16px_-4px_rgba(26,21,48,0.08)] group-hover:shadow-[0_24px_64px_-16px_rgba(26,21,48,0.15)] h-[500px] md:h-[600px] flex flex-col`}>
                 
                 {/* Fake browser header */}
                 <div className="bg-zinc-900/90 backdrop-blur-md border-b border-white/10 px-4 py-3 flex items-center gap-2 z-30 shrink-0">
@@ -129,27 +121,27 @@ export function PortfolioSection() {
               <div className="px-2 flex flex-col">
                  <div className="flex items-center gap-2 mb-4 flex-wrap">
                     {site.tags.map((tag, idx) => (
-                      <span key={idx} className="text-[10px] uppercase tracking-wider font-bold px-3 py-1.5 rounded-full border border-white/10 bg-white/5 text-gray-200 shadow-sm">
+                      <span key={idx} className="text-[10px] uppercase tracking-wider font-bold px-3 py-1.5 rounded-full border border-line bg-bg-card text-ink-secondary shadow-sm">
                          {tag}
                       </span>
                     ))}
-                    <div className="ml-auto text-xs font-black text-primary-light px-3 py-1.5 bg-primary/10 rounded-full border border-primary/20 animate-pulse-slow">
+                    <div className="ml-auto text-xs font-black text-purple-deep px-3 py-1.5 bg-purple-soft rounded-full border border-purple-deep/20">
                       {site.result}
                     </div>
                  </div>
                  
-                 <h3 className="text-2xl md:text-3xl font-bold text-white mb-2 tracking-tight group-hover:text-primary-light transition-colors duration-300 flex items-center flex-wrap gap-2">
-                    {site.name} <span className="text-gray-400 font-medium text-lg ml-1">— {site.title}</span>
+                 <h3 className="text-2xl md:text-3xl font-bold text-ink mb-2 tracking-tight group-hover:text-purple-deep transition-colors duration-300 flex items-center flex-wrap gap-2">
+                    {site.name} <span className="text-ink-tertiary font-medium text-lg ml-1">— {site.title}</span>
                  </h3>
                  
-                 <p className="text-base text-gray-400 font-medium leading-relaxed mb-4">
+                 <p className="text-base text-ink-secondary font-medium leading-relaxed mb-4">
                     {site.desc}
                  </p>
                  
-                 <ul className="space-y-2 mt-auto pt-4 border-t border-white/5">
+                 <ul className="space-y-2 mt-auto pt-4 border-t border-line">
                     {site.benefits.map((benefit, idx) => (
-                       <li key={idx} className="flex items-start gap-2.5 text-sm text-gray-300">
-                          <CheckCircle className="w-4 h-4 text-emerald-500 shrink-0 mt-0.5" />
+                       <li key={idx} className="flex items-start gap-2.5 text-sm text-ink-secondary">
+                          <CheckCircle className="w-4 h-4 text-green-cta shrink-0 mt-0.5" />
                           <span>{benefit}</span>
                        </li>
                     ))}
