@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import { CtaButton } from '../ui/CtaButton';
 import { MessageCircle, Calendar } from 'lucide-react';
 
 export function Hero() {
@@ -20,20 +19,12 @@ export function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-24 pb-12 overflow-hidden" id="hero">
+    <section className="relative min-h-screen flex items-center justify-center pt-24 pb-12 overflow-hidden bg-bg" id="hero">
       
-      {/* Background Ambience (SaaS Depth) */}
+      {/* Background Ambience (Light Mode) */}
       <div className="absolute inset-0 pointer-events-none">
-         {/* Orb 1 */}
-         <div className="absolute top-[10%] left-[20%] w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px] mix-blend-screen animate-pulse-slow opacity-60" />
-         {/* Orb 2 */}
-         <div className="absolute bottom-[20%] right-[10%] w-[600px] h-[600px] bg-secondary/10 rounded-full blur-[150px] mix-blend-screen animate-pulse-slow opacity-50" style={{ animationDelay: '2s' }} />
-         {/* Subtle central glow behind the text */}
-         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-accent/5 rounded-full blur-[100px] mix-blend-screen opacity-30" />
-         
-         {/* Floating generic particles */}
-         <div className="absolute w-1 h-1 bg-white/40 rounded-full top-[30%] left-[15%] animate-particle shadow-[0_0_10px_white]"></div>
-         <div className="absolute w-1.5 h-1.5 bg-primary-light/50 rounded-full top-[60%] right-[25%] animate-particle shadow-[0_0_15px_#8e62ff]" style={{ animationDelay: '1s', animationDuration: '5s' }}></div>
+         {/* Subtle radial gradient behind headline */}
+         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(139,98,255,0.06),transparent_60%)]" />
       </div>
 
       <div className="container mx-auto px-6 relative z-10 text-center">
@@ -45,15 +36,15 @@ export function Hero() {
         >
           <motion.h1 
             variants={itemVariants}
-            className="text-5xl md:text-[5.5rem] font-extrabold tracking-tight mb-6 leading-[1.1]"
+            className="text-5xl md:text-[5.5rem] font-extrabold tracking-tight mb-6 leading-[1.1] text-ink"
           >
             Pendant que vos concurrents postent des photos,<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-light via-secondary-light to-primary inline-block mt-2">vous, vous dominez.</span>
+            <span className="text-purple-deep bg-clip-text bg-gradient-to-r from-purple-deep to-purple-signa inline-block mt-2" style={{ WebkitTextFillColor: 'transparent', color: '#5B3FD9' }}>vous, vous dominez.</span>
           </motion.h1>
 
           <motion.p 
             variants={itemVariants}
-            className="text-2xl md:text-3xl lg:text-4xl font-bold mt-8 mb-6 text-transparent bg-clip-text bg-gradient-to-r from-primary-light via-secondary-light to-primary drop-shadow-sm leading-tight"
+            className="text-xl md:text-2xl font-normal mt-8 mb-6 text-ink-secondary drop-shadow-none leading-tight"
           >
             Spécialiste en gestion de réseaux sociaux 100% IA — Des contenus viraux et une présence digitale automatisée pour écraser la concurrence.
           </motion.p>
@@ -76,18 +67,16 @@ export function Hero() {
               whileTap={{ scale: 0.95 }}
               className="w-full sm:w-auto relative group"
             >
-              {/* Glow box underneath */}
-              <div className="absolute -inset-2 bg-gradient-to-r from-[#10b981] to-[#047857] rounded-full blur-[15px] opacity-60 group-hover:opacity-100 transition duration-500 animate-pulse-slow"></div>
-              
               <a 
                 href="tel:0615940884" 
-                className="relative flex items-center justify-center w-full px-10 py-5 font-bold rounded-full shadow-2xl transition-all duration-300 overflow-hidden bg-accent text-surface text-lg border border-[#10b981]/50"
+                aria-label="Appeler maintenant"
+                className="relative flex items-center justify-center w-full px-10 py-5 font-bold rounded-full shadow-[0_8px_24px_-8px_rgba(5,150,105,0.35)] transition-all duration-300 overflow-hidden bg-green-cta text-white text-lg hover:bg-green-cta-hover"
               >
                 {/* Shine effect inside button (permanent) */}
                 <div className="absolute inset-0 z-0 pointer-events-none">
-                  <div className="absolute top-0 -inset-full h-full w-1/2 block transform -skew-x-12 bg-gradient-to-r from-transparent via-white/40 to-transparent animate-[shimmer_2s_infinite]" />
+                  <div className="absolute top-0 -inset-full h-full w-1/2 block transform -skew-x-12 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-[shimmer_2s_infinite]" />
                 </div>
-                <div className="relative z-10 flex items-center gap-2 drop-shadow-md">
+                <div className="relative z-10 flex items-center gap-2">
                    <PhoneIcon />
                    Appeler maintenant
                 </div>
@@ -104,9 +93,10 @@ export function Hero() {
                 href="https://calendly.com/digitalpulse-agency/30min"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center justify-center w-full sm:w-auto px-10 py-5 text-lg font-bold text-white bg-white/5 border border-white/10 rounded-[40px] hover:bg-white/10 hover:border-white/20 transition-all duration-300 shadow-xl"
+                aria-label="Prendre un rendez-vous"
+                className="flex items-center justify-center w-full sm:w-auto px-10 py-5 text-lg font-bold text-ink bg-card border border-line rounded-[40px] hover:bg-bg-alt hover:border-purple-deep transition-all duration-300 shadow-sm"
               >
-                <Calendar className="w-5 h-5 mr-2 text-primary-light" />
+                <Calendar className="w-5 h-5 mr-2 text-purple-deep" />
                 Prendre un rendez-vous
               </a>
             </motion.div>
@@ -115,15 +105,15 @@ export function Hero() {
           {/* Micro contact links */}
           <motion.div 
             variants={itemVariants}
-            className="mt-10 flex items-center justify-center gap-5 text-sm text-gray-400"
+            className="mt-10 flex items-center justify-center gap-5 text-sm text-ink-tertiary"
           >
-            <a href="tel:0615940884" className="hover:text-white transition-colors flex items-center gap-1.5 focus:outline-none">
+            <a href="tel:0615940884" className="hover:text-ink transition-colors flex items-center gap-1.5 focus:outline-none" aria-label="Numéro de téléphone">
               <PhoneIcon /> 06 15 94 08 84
             </a>
-            <span className="w-1.5 h-1.5 rounded-full bg-white/20"></span>
-            <a href="sms:0615940884" className="hover:text-white transition-colors focus:outline-none">SMS</a>
-            <span className="w-1.5 h-1.5 rounded-full bg-white/20"></span>
-            <a href="https://wa.me/33615940884" target="_blank" rel="noreferrer" className="hover:text-accent transition-colors flex items-center gap-1.5 focus:outline-none">
+            <span className="w-1.5 h-1.5 rounded-full bg-line"></span>
+            <a href="sms:0615940884" className="hover:text-ink transition-colors focus:outline-none" aria-label="Envoyer un SMS">SMS</a>
+            <span className="w-1.5 h-1.5 rounded-full bg-line"></span>
+            <a href="https://wa.me/33615940884" target="_blank" rel="noreferrer" className="hover:text-green-cta transition-colors flex items-center gap-1.5 focus:outline-none" aria-label="Contacter sur WhatsApp">
               <MessageCircle className="w-4 h-4" /> WhatsApp
             </a>
           </motion.div>

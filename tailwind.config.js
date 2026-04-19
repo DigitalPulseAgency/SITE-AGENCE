@@ -23,7 +23,28 @@ export default {
           DEFAULT: '#10b981', // green for CTA
           light: '#34d399',
           hover: '#059669',
-        }
+        },
+        bg: {
+          DEFAULT: '#FAF7F2',
+          alt: '#F2EDE4',
+          card: '#FFFFFF',
+        },
+        ink: {
+          DEFAULT: '#1A1530',
+          secondary: '#4A4560',
+          tertiary: '#8A8599',
+        },
+        purple: {
+          deep: '#5B3FD9',
+          signa: '#8E62FF',
+          soft: '#E8DFFF',
+        },
+        'green-cta': {
+          DEFAULT: '#059669',
+          hover: '#047857',
+        },
+        line: '#E5E0D6',
+        error: '#DC2626',
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],

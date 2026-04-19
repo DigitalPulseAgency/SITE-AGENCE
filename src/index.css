@@ -5,6 +5,22 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --bg-primary: #FAF7F2;
+    --bg-alt: #F2EDE4;
+    --bg-card: #FFFFFF;
+    --text-primary: #1A1530;
+    --text-secondary: #4A4560;
+    --text-tertiary: #8A8599;
+    --purple-deep: #5B3FD9;
+    --purple-signa: #8E62FF;
+    --purple-soft: #E8DFFF;
+    --green-cta: #059669;
+    --green-cta-hover: #047857;
+    --border: #E5E0D6;
+    --error: #DC2626;
+  }
+
   html {
     scroll-behavior: smooth;
   }
