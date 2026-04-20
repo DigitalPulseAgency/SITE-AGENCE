@@ -8,11 +8,11 @@ export function ProcessSection() {
   ];
 
   return (
-    <section className="py-24 bg-surface" id="methodologie">
+    <section className="py-24 bg-bg-alt" id="methodologie">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">La méthode</h2>
-          <p className="text-gray-400">Un déploiement sans friction pour votre entreprise.</p>
+          <h2 className="text-4xl font-bold mb-4 text-ink">La méthode</h2>
+          <p className="text-ink-secondary">Un déploiement sans friction pour votre entreprise.</p>
         </div>
 
         <div className="max-w-4xl mx-auto">
@@ -24,11 +24,11 @@ export function ProcessSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.2 }}
-                className="relative p-6 glass-card rounded-2xl hover:border-primary/30 transition-colors"
+                className="relative p-6 bg-bg-card border border-line rounded-2xl shadow-[0_4px_16px_-4px_rgba(26,21,48,0.08)] hover:border-purple-deep/30 transition-colors"
               >
-                <div className="text-5xl font-extrabold text-white/5 absolute top-4 right-4">{step.num}</div>
-                <h3 className="text-xl font-bold mb-3 text-white relative z-10">{step.num}. {step.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed relative z-10">{step.desc}</p>
+                {/* No watermark background numbers allowed! */}
+                <h3 className="text-xl font-bold mb-3 text-ink relative z-10">{step.num}. {step.title}</h3>
+                <p className="text-ink-secondary text-sm leading-relaxed relative z-10">{step.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -39,7 +39,7 @@ export function ProcessSection() {
             viewport={{ once: true }}
             className="mt-12 flex flex-col items-center justify-center gap-2 text-center"
           >
-            <div className="inline-block px-4 py-2 rounded-full bg-accent/10 border border-accent/20 text-accent text-sm font-bold">
+            <div className="inline-block px-4 py-2 rounded-full bg-purple-soft border border-purple-deep/20 text-purple-deep text-sm font-bold">
               Formation rapide (15 minutes) au système final. En visio ou en présentiel.
             </div>
           </motion.div>
